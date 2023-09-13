@@ -1,0 +1,59 @@
+{
+  "name": "dsabp-js",
+  "version": "0.1.0",
+  "description": "DSA (drednot.io) Blueprint implementation and API for Node.js and the browser, in TypeScript.",
+  "homepage": "https://github.com/Blueyescat/dsabp-js",
+  "bugs": "https://github.com/Blueyescat/dsabp-js/issues",
+  "author": "Blueyescat <blueyescat123@gmail.com>",
+  "license": "GPL-3.0",
+  "type": "module",
+  "main": "./dist/node/cjs/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./dist/browser/esm/index.js",
+      "default": "./dist/node/cjs/index.cjs"
+    },
+    "./dev": "./dist/tsc/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "dev": [
+        "./dist/tsc/index.d.ts"
+      ],
+      "*": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist/",
+    "!dist/tsc/"
+  ],
+  "scripts": {
+    "start": "tsc -w",
+    "build:dev": "tsc",
+    "build": "node --no-warnings build.js",
+    "docs": "typedoc --options ./.typedoc/config.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "dts-bundle-generator": "^8.0.1",
+    "esbuild": "^0.19.2",
+    "eslint": "^8.49.0",
+    "fflate": "^0.8.0",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
+  },
+  "keywords": [
+    "Deep Space Airships",
+    "Blueprint",
+    "drednot.io",
+    "DSA",
+    "Dredark",
+    "node",
+    "browser"
+  ]
+}

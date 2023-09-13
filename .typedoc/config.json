@@ -1,0 +1,13 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "cleanOutputDir": true,
+  "entryPoints": [ "../src/index.ts" ],
+  "out": "../docs/",
+  "disableSources": true,
+  "navigationLinks": {
+    "GitHub": "https://github.com/Blueyescat/dsabp-js",
+    "npm": "https://www.npmjs.com/package/dsabp-js"
+  },
+  "customCss": "./style.css",
+  "plugin": [ "./plugin.js" ]
+}
