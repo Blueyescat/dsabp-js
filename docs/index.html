@@ -17,6 +17,7 @@
 <ul>
 <li>It works in Node.js and the browser. Not meant to support <em>older</em> Node.js versions or browsers.</li>
 <li>The API design is subject to frequent changes for the time being.</li>
+<li>Follows the official <a href="https://drednot.io/c/coder-docs/t/blueprint-specification">blueprint specification</a>.</li>
 <li>Encoded blueprint values aren&#39;t forced to be valid in the game. (Allows experimenting)</li>
 <li>The generated blueprint strings won&#39;t be identical to what the game generates and may be shorter or longer.</li>
 <li>In Node.js, the built-in <a href="https://nodejs.org/api/zlib.html">zlib</a> module is used for  deflate and inflate operations, and the <a href="https://nodejs.org/api/buffer.html">Buffer</a> class is used for Base64 operations. In the browser, the <a href="https://github.com/101arrowz/fflate">fflate</a> library (8.3KB) and the <a href="https://github.com/Blueyescat/dsabp-js/blob/main/src/injBrowser.ts">atob-btoa</a> functions are used. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API">Compression Streams API</a> is not used for a few reasons.</li>

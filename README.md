@@ -4,6 +4,7 @@
 A TypeScript library to decode, create, modify and encode blueprints for the [Deep Space Airships (DSA)](https://drednot.io) game.
 - It works in Node.js and the browser. Not meant to support *older* Node.js versions or browsers.
 - The API design is subject to frequent changes for the time being.
+- Follows the official [blueprint specification](https://drednot.io/c/coder-docs/t/blueprint-specification).
 - Encoded blueprint values aren't forced to be valid in the game. (Allows experimenting)
 - The generated blueprint strings won't be identical to what the game generates and may be shorter or longer.
 - In Node.js, the built-in [zlib](https://nodejs.org/api/zlib.html) module is used for  deflate and inflate operations, and the [Buffer](https://nodejs.org/api/buffer.html) class is used for Base64 operations. In the browser, the [fflate](https://github.com/101arrowz/fflate) library (8.3KB) and the [atob-btoa](https://github.com/Blueyescat/dsabp-js/blob/main/src/injBrowser.ts) functions are used. The [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API) is not used for a few reasons.
