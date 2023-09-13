@@ -39,10 +39,9 @@
 <a id="md:browser-extensions" class="tsd-anchor"></a><h3><a href="#md:browser-extensions">Browser Extensions</a></h3><p>There are some requirements when loading the library using a browser extension&#39;s <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts">content_scripts</a>, which has to use the IIFE bundle:</p>
 <ul>
 <li>The JS file must be included in the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources">web_accessible_resources</a>.</li>
-<li>The JS file must be in a folder containing <code>dsabp</code> in its name OR the file must be named <code>dsabp.js</code> or <code>dsabp.min.js</code>.
-<strong>Examples:</strong> <code>/lib/dsabp/index.js</code>, <code>/dsabp.min.js</code> and <code>/lib/dsabp.js</code></li>
+<li>The JS file must be in a folder containing <code>dsabp</code> in its name, or the file must be named <code>dsabp.js</code> or <code>dsabp.min.js</code>. Some examples: <code>/lib/dsabp/index.js</code>, <code>/dsabp.min.js</code> and <code>/lib/dsabp.js</code>.</li>
 </ul>
-<p>If you load it using methods such as <code>import()</code> (ESM) from a content script or by injecting a <code>script</code> tag with <code>type=module</code> into the page, it will work without any requirements.</p>
+<p>If you load it using methods such as <code>import()</code> (ESM) from a content script or by injecting a <code>script</code> tag (ESM or IIFE) into the page, it will work without any requirements.</p>
 <a id="md:usage" class="tsd-anchor"></a><h2><a href="#md:usage">Usage</a></h2><ul>
 <li><a href="https://blueyescat.github.io/dsabp-js/modules">Documentation</a></li>
 <li><a href="https://dsatools.pages.dev/bpeditor">DSA Tools - Blueprint Editor</a> is made using dsabp-js.</li>

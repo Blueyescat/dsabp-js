@@ -42,10 +42,9 @@ const { decode, encode } = dsabp
 ### Browser Extensions
 There are some requirements when loading the library using a browser extension's [content_scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts), which has to use the IIFE bundle:
 * The JS file must be included in the [web_accessible_resources](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources).
-* The JS file must be in a folder containing `dsabp` in its name OR the file must be named `dsabp.js` or `dsabp.min.js`.
-  **Examples:** `/lib/dsabp/index.js`, `/dsabp.min.js` and `/lib/dsabp.js`
+* The JS file must be in a folder containing `dsabp` in its name, or the file must be named `dsabp.js` or `dsabp.min.js`. Some examples: `/lib/dsabp/index.js`, `/dsabp.min.js` and `/lib/dsabp.js`.
 
-If you load it using methods such as `import()` (ESM) from a content script or by injecting a `script` tag with `type=module` into the page, it will work without any requirements.
+If you load it using methods such as `import()` (ESM) from a content script or by injecting a `script` tag (ESM or IIFE) into the page, it will work without any requirements.
 
 ## Usage
 * [Documentation](https://blueyescat.github.io/dsabp-js/modules)
