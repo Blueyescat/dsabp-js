@@ -1,11 +1,11 @@
 {
   "name": "dsabp-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DSA (drednot.io) Blueprint implementation and API for Node.js and the browser, in TypeScript.",
   "homepage": "https://github.com/Blueyescat/dsabp-js",
   "bugs": "https://github.com/Blueyescat/dsabp-js/issues",
   "author": "Blueyescat <blueyescat123@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/node/cjs/index.cjs",
   "types": "./dist/index.d.ts",
