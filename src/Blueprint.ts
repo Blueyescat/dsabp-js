@@ -1,6 +1,6 @@
 import { BuildCmd } from "./BuildCmd.js"
 import { ConfigCmd } from "./ConfigCmd.js"
-import { BuildCmdIndex, CmdType, ConfigCmdIndex, BlueprintIndex as Index } from "./constants.js"
+import { BuildCmdIndex, CmdType, ConfigCmdIndex, BlueprintIndex as Index } from "./constantsPrivate.js"
 import { BlueprintOptions } from "./types.js"
 
 // Should use Required<> but docs won't be inherited..

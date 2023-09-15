@@ -3,7 +3,7 @@ import { deflateRawSync as zlib_deflateRawSync } from "zlib" // @build_node-only
 import { Blueprint } from "./Blueprint.js"
 import { BuildCmd } from "./BuildCmd.js"
 import { ConfigCmd } from "./ConfigCmd.js"
-import { ConfigCmdIndex, TAG } from "./constants.js"
+import { ConfigCmdIndex, TAG } from "./constantsPrivate.js"
 import { ui8tob64 } from "./injBrowser.js" // @build_browser-only
 
 /**

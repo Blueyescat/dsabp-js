@@ -1,9 +1,7 @@
 import { BPCmd } from "./BPCmd.js"
-import { CfgMsgKey, CmdType, ConfigCmdIndex as Index, LoaderCfgIndex, PusherCfgIndex } from "./constants.js"
-import {
-	ConfigCmdOptions, FilterMode, FixedAngle, LoaderConfig,
-	LoaderPoint, LoaderPriority, PusherConfig, PusherMode
-} from "./types.js"
+import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants.js"
+import { CfgMsgKey, CmdType, ConfigCmdIndex as Index, LoaderCfgIndex, PusherCfgIndex } from "./constantsPrivate.js"
+import { ConfigCmdOptions, LoaderConfig, PusherConfig } from "./types.js"
 
 let defaults: Required<ConfigCmdOptions> = {
 	filterMode: FilterMode.ALLOW_ALL,

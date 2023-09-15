@@ -35,7 +35,7 @@ export function createWorker() {
 				self.postMessage(data)
 			}
 			//
-		})		
+		})
 		lib = await import(info.bundleInfo ? ("file://" + info.path) : new URL("index.js", info.path).toString())
 	}
 
