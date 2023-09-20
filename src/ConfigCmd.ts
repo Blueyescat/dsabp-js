@@ -1,6 +1,6 @@
 import { BPCmd } from "./BPCmd.js"
-import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants.js"
-import { CfgMsgKey, CmdType, ConfigCmdIndex as Index, LoaderCfgIndex, PusherCfgIndex } from "./constantsPrivate.js"
+import { CfgMsgKey, CmdType, ConfigCmdIndex as Index, LoaderCfgIndex, PusherCfgIndex } from "./constants/private.js"
+import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants/public.js"
 import { ConfigCmdOptions, LoaderConfig, PusherConfig } from "./types.js"
 
 let defaults: Required<ConfigCmdOptions> = {
@@ -188,15 +188,14 @@ function cfgArrToObj(key: string, arr: any[]) {
 	switch (key) {
 		case CfgMsgKey.FILTER_CONFIG:
 		case CfgMsgKey.ANGLE:
-		case CfgMsgKey.ANGLE_FIXED:
 			return arr[0]
 		case CfgMsgKey.FILTER_ITEMS:
 			return arr
 		case CfgMsgKey.LOADER:
 			return {
-				pickupPoint: arr[LoaderCfgIndex.PICKUP_POINT],
-				dropPoint: arr[LoaderCfgIndex.DROP_POINT],
-				priority: arr[LoaderCfgIndex.PRIORTY],
+				pickupPoint: LoaderPoint.getByValue(arr[LoaderCfgIndex.PICKUP_POINT]),
+				dropPoint: LoaderPoint.getByValue(arr[LoaderCfgIndex.DROP_POINT]),
+				priority: LoaderPriority.getByValue(arr[LoaderCfgIndex.PRIORTY]),
 				stackLimit: arr[LoaderCfgIndex.STACK_LIMIT],
 				cycleTime: arr[LoaderCfgIndex.CYCLE_TIME],
 				requireOutputInventory: arr[LoaderCfgIndex.REQUIRE_OUTPUT_INVENTORY],
@@ -204,17 +203,19 @@ function cfgArrToObj(key: string, arr: any[]) {
 			}
 		case CfgMsgKey.PUSHER:
 			return {
-				defaultMode: arr[PusherCfgIndex.DEFAULT_MODE],
-				filteredMode: arr[PusherCfgIndex.FILTERED_MODE],
+				defaultMode: PusherMode.getByValue(arr[PusherCfgIndex.DEFAULT_MODE]),
+				filteredMode: PusherMode.getByValue(arr[PusherCfgIndex.FILTERED_MODE]),
 				angle: arr[PusherCfgIndex.ANGLE],
 				targetSpeed: arr[PusherCfgIndex.TARGET_SPEED],
 				filterByInventory: arr[PusherCfgIndex.FILTER_BY_INVENTORY],
 				maxBeamLength: arr[PusherCfgIndex.MAX_BEAM_LENGTH],
 			}
+		case CfgMsgKey.ANGLE_FIXED:
+			return FixedAngle.getByValue(arr[0])
 	}
 }
 
-function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig) {
+function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig | FixedAngle) {
 	const a = []
 	if (obj !== null) { // delete props that are set to null, so they will be overwritten
 		for (const key in obj)
@@ -224,24 +225,26 @@ function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig) {
 	switch (key) {
 		case CfgMsgKey.LOADER:
 			obj = { ...defaults.loader, ...obj } as LoaderConfig
-			a[LoaderCfgIndex.PICKUP_POINT] = obj.pickupPoint
-			a[LoaderCfgIndex.DROP_POINT] = obj.dropPoint
-			a[LoaderCfgIndex.PRIORTY] = obj.priority
+			a[LoaderCfgIndex.PICKUP_POINT] = obj.pickupPoint?.enumValue
+			a[LoaderCfgIndex.DROP_POINT] = obj.dropPoint?.enumValue
+			a[LoaderCfgIndex.PRIORTY] = obj.priority?.enumValue
 			a[LoaderCfgIndex.STACK_LIMIT] = obj.stackLimit
 			a[LoaderCfgIndex.CYCLE_TIME] = obj.cycleTime
 			a[LoaderCfgIndex.REQUIRE_OUTPUT_INVENTORY] = obj.requireOutputInventory
 			a[LoaderCfgIndex.WAIT_FOR_STACK_LIMIT] = obj.waitForStackLimit
 			break
-		case CfgMsgKey.PUSHER: {
+		case CfgMsgKey.PUSHER:
 			obj = { ...defaults.pusher, ...obj } as PusherConfig
-			a[PusherCfgIndex.DEFAULT_MODE] = obj.defaultMode
-			a[PusherCfgIndex.FILTERED_MODE] = obj.filteredMode
+			a[PusherCfgIndex.DEFAULT_MODE] = obj.defaultMode?.enumValue
+			a[PusherCfgIndex.FILTERED_MODE] = obj.filteredMode?.enumValue
 			a[PusherCfgIndex.ANGLE] = obj.angle
 			a[PusherCfgIndex.TARGET_SPEED] = obj.targetSpeed
 			a[PusherCfgIndex.FILTER_BY_INVENTORY] = obj.filterByInventory
 			a[PusherCfgIndex.MAX_BEAM_LENGTH] = obj.maxBeamLength
 			break
-		}
+		case CfgMsgKey.ANGLE_FIXED:
+			a[0] = (obj as FixedAngle ?? defaults.fixedAngle).enumValue
+			break
 	}
 	return a
 }

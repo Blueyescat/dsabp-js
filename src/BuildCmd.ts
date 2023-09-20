@@ -1,6 +1,6 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
-import { CmdType, BuildCmdIndex as Index } from "./constantsPrivate.js"
+import { CmdType, BuildCmdIndex as Index } from "./constants/private.js"
 import { BuildCmdOptions } from "./types.js"
 
 export class BuildCmd extends BPCmd implements BuildCmdOptions {

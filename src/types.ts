@@ -1,6 +1,6 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
-import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants.js"
+import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants/public.js"
 
 export interface DecoderOptions {
 	/**

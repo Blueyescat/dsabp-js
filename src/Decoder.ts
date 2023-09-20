@@ -4,8 +4,8 @@ import { inflateRawSync as zlib_inflateRawSync } from "zlib" // @build_node-only
 import { Blueprint } from "./Blueprint.js"
 import { BuildCmd } from "./BuildCmd.js"
 import { ConfigCmd } from "./ConfigCmd.js"
-import { PREFIX } from "./constants.js"
-import { BuildCmdIndex, CmdType, ConfigCmdIndex, TAG } from "./constantsPrivate.js"
+import { BuildCmdIndex, CmdType, ConfigCmdIndex, TAG } from "./constants/private.js"
+import { PREFIX } from "./constants/public.js"
 import { b64toUi8 } from "./injBrowser.js" // @build_browser-only
 import { DecoderOptions } from "./types.js"
 

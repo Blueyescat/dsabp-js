@@ -8,7 +8,8 @@ import * as util from "./util.js"
 export { BPCmd } from "./BPCmd.js"
 export { BuildBits } from "./BuildBits.js"
 export { BuildCmd } from "./BuildCmd.js"
-export * from "./constants.js"
+export { Enum } from "./constants/Enum.js"
+export * from "./constants/public.js"
 export * from "./types.js"
 export { Blueprint, ConfigCmd, Decoder, Encoder }
 
