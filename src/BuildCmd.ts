@@ -1,5 +1,6 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
+import { Item } from "./constants/ItemEnum.js"
 import { CmdType, BuildCmdIndex as Index } from "./constants/private.js"
 import { BuildCmdOptions } from "./types.js"
 
@@ -31,7 +32,7 @@ export class BuildCmd extends BPCmd implements BuildCmdOptions {
 	fillFromArray(arr: any[]) {
 		this.x = arr[Index.X]
 		this.y = arr[Index.Y]
-		this.item = arr[Index.ITEM]
+		this.item = Item.getById(arr[Index.ITEM])
 		this.bits = typeof arr[Index.BITS] != "undefined" ? new BuildBits(arr[Index.BITS]) : undefined
 		this.shape = arr[Index.SHAPE]
 		return this
@@ -49,7 +50,7 @@ export class BuildCmd extends BPCmd implements BuildCmdOptions {
 			arr[Index.Y] = this.y
 
 		if (this.item !== undefined)
-			arr[Index.ITEM] = this.item
+			arr[Index.ITEM] = this.item.id
 
 		if (this.bits !== undefined)
 			arr[Index.BITS] = this.bits.int

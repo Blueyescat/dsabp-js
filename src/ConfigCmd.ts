@@ -1,11 +1,12 @@
 import { BPCmd } from "./BPCmd.js"
+import { Item } from "./constants/ItemEnum.js"
 import { CfgMsgKey, CmdType, ConfigCmdIndex as Index, LoaderCfgIndex, PusherCfgIndex } from "./constants/private.js"
 import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants/public.js"
 import { ConfigCmdOptions, LoaderConfig, PusherConfig } from "./types.js"
 
 let defaults: Required<ConfigCmdOptions> = {
 	filterMode: FilterMode.ALLOW_ALL,
-	filterItems: [0, 0, 0],
+	filterItems: [Item.NULL, Item.NULL, Item.NULL],
 	angle: 0,
 	fixedAngle: FixedAngle.RIGHT,
 	pusher: {
@@ -135,14 +136,35 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 			let val = structuredClone(this[prop])
 			const msgKey = msgKey_prop[prop] ?? prop
 
-			if (val === undefined) continue // undefined values meant to be excluded
-			if (val === null || Object.getPrototypeOf(val) == Object.prototype) {
+			if (val === undefined) continue // undefined values are meant to be excluded
+
+			// enum FILTER_CONFIG
+			if (msgKey == CfgMsgKey.FILTER_CONFIG) {
+				val = [(val as FilterMode ?? defaults.filterMode).enumValue]
+			}
+			// enum FILTER_ITEMS
+			else if (msgKey == CfgMsgKey.FILTER_ITEMS) {
+				if (val === null)
+					val = defaults.filterItems
+				else
+					for (let i = 0; i < val.length; i++)
+						val[i] = (val[i] as Item ?? defaults.filterItems[i]).enumValue
+			}
+			// enum ANGLE_FIXED
+			else if (msgKey == CfgMsgKey.ANGLE_FIXED) {
+				val = [(val as FixedAngle ?? defaults.fixedAngle).enumValue]
+			}
+			// other {object}
+			else if (val === null || Object.getPrototypeOf(val) == Object.prototype) {
 				if (val !== null && !Object.keys(val).length)
-					continue // ignore empty objects
+					continue // ignore empty
 				val = cfgObjToArr(msgKey, val)
-			} else if (!Array.isArray(val)) {
+			}
+			// other non-array values
+			else if (!Array.isArray(val)) {
 				val = [val]
 			}
+
 			arr[Index.DATA].push(msgKey, 0, val)
 		}
 		return arr
@@ -151,8 +173,6 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 	/**
 	 * Checks whether the data of this command is not decoded. Comes from decoding a blueprint with
 	 * {@link DecoderOptions.ignoreConfigCmdData} = `true`.
-	 * 
-	 * @see {@link DecoderOptions.ignoreConfigCmdData} for more info.
 	 */
 	get isRaw() {
 		return this.rawData instanceof Uint8Array
@@ -186,10 +206,13 @@ function deepEquals(a, b): boolean {
 
 function cfgArrToObj(key: string, arr: any[]) {
 	switch (key) {
-		case CfgMsgKey.FILTER_CONFIG:
 		case CfgMsgKey.ANGLE:
 			return arr[0]
+		case CfgMsgKey.FILTER_CONFIG:
+			return FilterMode.getByValue(arr[0])
 		case CfgMsgKey.FILTER_ITEMS:
+			for (let i = 0; i < arr.length; i++)
+				arr[i] = Item.getById(arr[i])
 			return arr
 		case CfgMsgKey.LOADER:
 			return {
@@ -215,7 +238,7 @@ function cfgArrToObj(key: string, arr: any[]) {
 	}
 }
 
-function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig | FixedAngle) {
+function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig) {
 	const a = []
 	if (obj !== null) { // delete props that are set to null, so they will be overwritten
 		for (const key in obj)
@@ -241,9 +264,6 @@ function cfgObjToArr(key: string, obj: LoaderConfig | PusherConfig | FixedAngle)
 			a[PusherCfgIndex.TARGET_SPEED] = obj.targetSpeed
 			a[PusherCfgIndex.FILTER_BY_INVENTORY] = obj.filterByInventory
 			a[PusherCfgIndex.MAX_BEAM_LENGTH] = obj.maxBeamLength
-			break
-		case CfgMsgKey.ANGLE_FIXED:
-			a[0] = (obj as FixedAngle ?? defaults.fixedAngle).enumValue
 			break
 	}
 	return a

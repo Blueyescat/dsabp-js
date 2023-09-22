@@ -1,5 +1,6 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
+import { Item } from "./constants/ItemEnum.js"
 import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants/public.js"
 
 export interface DecoderOptions {
@@ -45,7 +46,7 @@ export interface BlueprintOptions {
 	 * @example
 	 * for (const cmd of bp.commands) {
 	 * 	if (cmd instanceof BuildCmd) {
-	 * 		console.log(cmd.item)
+	 * 		console.log(cmd.item.name)
 	 * 	}
 	 * }
 	 * @defaultValue `[]`
@@ -65,8 +66,8 @@ export interface BuildCmdOptions {
 	 * Y-coord, vertical offset from the **middle** of left bottom square of the blueprint area. Can go down to `-0.5`.
 	 */
 	y?: number
-	/** Integer ID of the item to build. */
-	item?: number
+	/** The item to build. See the {@link Item} enum. */
+	item?: Item
 	/** A {@link BuildBits} instance. */
 	bits?: BuildBits
 	/** Shape index of the tile to be placed. */
@@ -84,8 +85,8 @@ export interface BuildCmdOptions {
 export interface ConfigCmdOptions {
 	/** What the filter for hatches and loaders should do. */
 	filterMode?: FilterMode,
-	/** Array of 3 item IDs in integer. */
-	filterItems?: [number, number, number],
+	/**  */
+	filterItems?: [Item, Item, Item],
 	/** Used for expando boxes. [0, 360] float. */
 	angle?: number,
 	/** Used for shield generators. */
