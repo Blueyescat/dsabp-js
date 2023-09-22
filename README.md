@@ -8,7 +8,7 @@ A TypeScript library to decode, create, modify and encode blueprints for the [De
 - Encoded blueprint values aren't forced to be valid in the game. (Allows experimenting)
 - The generated blueprint strings won't be identical to what the game generates and may be shorter or longer.
 - In Node.js, the built-in [zlib](https://nodejs.org/api/zlib.html) module is used for  deflate and inflate operations, and the [Buffer](https://nodejs.org/api/buffer.html) class is used for Base64 operations. In the browser, the [fflate](https://github.com/101arrowz/fflate) library (8.3KB) and the [atob-btoa](https://github.com/Blueyescat/dsabp-js/blob/main/src/injBrowser.ts) functions are used. The [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API) is not used for a few reasons.
-- I do plan to add item and shape enums.
+- I do plan to add shape enum.
 
 ## Install
 #### Node.js
@@ -52,21 +52,19 @@ If you load it using methods such as `import()` (ESM) from a content script or b
 * [DSA Tools - Blueprint Editor](https://dsatools.pages.dev/bpeditor) is made using dsabp-js.
 * **A Simple Example**
   ```js
-  import { decode, encode, BuildCmd } from "dsabp-js"
+  import { decode, BuildCmd, Item, encode } from "dsabp-js"
 
   const bp = await decode("DSA:m8DAxDRhAgMDY8OLiRMYGBkaXk6cOBEA") // decode a blueprint string
 
   for (const cmd of bp.commands) { // loop all commands of the bp
-      if (!(cmd instanceof BuildCmd)) continue // ignore if the cmd is not a BuildCmd
+    if (!(cmd instanceof BuildCmd)) continue // ignore if the cmd is not a BuildCmd
 
-      if (cmd.item == 232) // if the build item is iron block
-          cmd.item = 234 // replace it with ice block
+    if (cmd.item == Item.BLOCK) // if the build item is iron block
+      cmd.item = Item.BLOCK_ICE_GLASS // replace it with ice block
   }
 
-  console.log("DSA:" + await encode(bp)) // get string of the edited bp
+  console.log("DSA:" + await encode(bp)) // log string for the modified bp
   ```
-
-Item IDs can be found at https://dsatools.pages.dev/items or https://pub.drednot.io/test/econ/item_schema.json.
 
 ## Issues / Bugs
 Create a detailed issue in the [Issues](https://github.com/Blueyescat/dsabp-js/issues) page.
