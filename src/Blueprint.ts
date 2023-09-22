@@ -6,10 +6,10 @@ import { BlueprintOptions } from "./types.js"
 // Should use Required<> but docs won't be inherited..
 export class Blueprint implements BlueprintOptions {
 
-	/** @inheritDoc */ version: BlueprintOptions["version"]
-	/** @inheritDoc */ width: BlueprintOptions["width"]
-	/** @inheritDoc */ height: BlueprintOptions["height"]
-	/** @inheritDoc */ commands: BlueprintOptions["commands"]
+	version: BlueprintOptions["version"]
+	width: BlueprintOptions["width"]
+	height: BlueprintOptions["height"]
+	commands: BlueprintOptions["commands"]
 
 	/**
 	 * @param input Defaults to a 1x1 blueprint with no commands and version 0.

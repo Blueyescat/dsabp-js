@@ -28,7 +28,7 @@ export class Encoder {
 		this.#pos = 0
 	}
 
-	/** @inheritDoc encode */
+	/** {@inheritDoc encode} */
 	encodeSync(bp: Blueprint) {
 		if (!(bp instanceof Blueprint))
 			throw new TypeError(`input must be an instance of ${Blueprint.name}`)

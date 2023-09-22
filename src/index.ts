@@ -44,7 +44,7 @@ export async function decode(input: string, options?: DecoderOptions) {
 
 /**
  * Synchronously decodes the data of a {@link ConfigCmd} containing raw data.
- * @see {@link DecoderOptions.ignoreConfigCmdData} for more info.
+ * See {@link DecoderOptions.ignoreConfigCmdData} for more info.
  * @returns The same input instance, with decoded data.
  */
 export function decodeConfigCmdSync(cmd: ConfigCmd) {
@@ -53,7 +53,7 @@ export function decodeConfigCmdSync(cmd: ConfigCmd) {
 
 /**
  * Asynchronously decodes the data of a {@link ConfigCmd} containing raw data.
- * @see {@link DecoderOptions.ignoreConfigCmdData} for more info.
+ * See {@link DecoderOptions.ignoreConfigCmdData} for more info.
  * @returns The same input instance, with decoded data.
  */
 export async function decodeConfigCmd(cmd: ConfigCmd) {

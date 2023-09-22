@@ -51,7 +51,7 @@ export class Decoder {
 		this.#lastArrType = lastArrType ?? ArrType.NONE
 	}
 
-	/** @inheritDoc decodeSync */
+	/** {@inheritDoc decodeSync} */
 	decodeSync(input: string, options: DecoderOptions = {}): Blueprint {
 		if (typeof input != "string")
 			throw new TypeError("input must be a string")
@@ -75,7 +75,7 @@ export class Decoder {
 		return new Blueprint().fillFromArray(this.#read(), true)
 	}
 
-	/** @inheritDoc decodeConfigCmdSync */
+	/** {@inheritDoc decodeConfigCmdSync} */
 	decodeConfigCmdSync(cmd: ConfigCmd) {
 		if (!(cmd instanceof ConfigCmd))
 			throw new TypeError(`input must be a ${ConfigCmd.name}`)

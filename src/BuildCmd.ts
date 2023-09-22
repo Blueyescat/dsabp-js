@@ -6,11 +6,11 @@ import { BuildCmdOptions } from "./types.js"
 
 export class BuildCmd extends BPCmd implements BuildCmdOptions {
 
-	/** @inheritDoc */ x: BuildCmdOptions["x"]
-	/** @inheritDoc */ y: BuildCmdOptions["y"]
-	/** @inheritDoc */ item: BuildCmdOptions["item"]
-	/** @inheritDoc */ bits: BuildCmdOptions["bits"]
-	/** @inheritDoc */ shape: BuildCmdOptions["shape"]
+	x: BuildCmdOptions["x"]
+	y: BuildCmdOptions["y"]
+	item: BuildCmdOptions["item"]
+	bits: BuildCmdOptions["bits"]
+	shape: BuildCmdOptions["shape"]
 
 	constructor(input?: BuildCmdOptions) {
 		super()

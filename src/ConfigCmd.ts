@@ -57,12 +57,12 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 
 	/** @private */ rawData: Uint8Array
 
-	/** @inheritDoc */ filterMode: ConfigCmdOptions["filterMode"]
-	/** @inheritDoc */ filterItems: ConfigCmdOptions["filterItems"]
-	/** @inheritDoc */ angle: ConfigCmdOptions["angle"]
-	/** @inheritDoc */ fixedAngle: ConfigCmdOptions["fixedAngle"]
-	/** @inheritDoc */ pusher: ConfigCmdOptions["pusher"] = {}
-	/** @inheritDoc */ loader: ConfigCmdOptions["loader"] = {}
+	filterMode: ConfigCmdOptions["filterMode"]
+	filterItems: ConfigCmdOptions["filterItems"]
+	angle: ConfigCmdOptions["angle"]
+	fixedAngle: ConfigCmdOptions["fixedAngle"]
+	pusher: ConfigCmdOptions["pusher"] = {}
+	loader: ConfigCmdOptions["loader"] = {}
 
 	/**
 	 * @param input If omitted, the config will be empty.
