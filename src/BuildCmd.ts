@@ -1,6 +1,7 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
 import { Item } from "./constants/ItemEnum.js"
+import { Shape } from "./constants/ShapeEnum.js"
 import { CmdType, BuildCmdIndex as Index } from "./constants/private.js"
 import { BuildCmdOptions } from "./types.js"
 
@@ -34,7 +35,7 @@ export class BuildCmd extends BPCmd implements BuildCmdOptions {
 		this.y = arr[Index.Y]
 		this.item = Item.getById(arr[Index.ITEM])
 		this.bits = typeof arr[Index.BITS] != "undefined" ? new BuildBits(arr[Index.BITS]) : undefined
-		this.shape = arr[Index.SHAPE]
+		this.shape = Shape.getByValue(arr[Index.SHAPE])
 		return this
 	}
 
@@ -55,8 +56,8 @@ export class BuildCmd extends BPCmd implements BuildCmdOptions {
 		if (this.bits !== undefined)
 			arr[Index.BITS] = this.bits.int
 
-		if (this.shape !== undefined && this.shape != 0) { // ignore shape if 0 (game default)
-			arr[Index.SHAPE] = this.shape
+		if (this.shape !== undefined && this.shape != Shape.BLOCK) { // game defaults to block
+			arr[Index.SHAPE] = this.shape.enumValue
 
 			if (typeof arr[Index.BITS] == "undefined") // can't have shape without bits
 				arr[Index.BITS] = 1n

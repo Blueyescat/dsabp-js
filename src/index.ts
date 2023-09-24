@@ -10,6 +10,7 @@ export { BuildBits } from "./BuildBits.js"
 export { BuildCmd } from "./BuildCmd.js"
 export { Enum } from "./constants/Enum.js"
 export { Item } from "./constants/ItemEnum.js"
+export { Shape } from "./constants/ShapeEnum.js"
 export * from "./constants/public.js"
 export * from "./types.js"
 export { Blueprint, ConfigCmd, Decoder, Encoder }

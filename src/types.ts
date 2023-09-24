@@ -1,6 +1,7 @@
 import { BPCmd } from "./BPCmd.js"
 import { BuildBits } from "./BuildBits.js"
 import { Item } from "./constants/ItemEnum.js"
+import { Shape } from "./constants/ShapeEnum.js"
 import { FilterMode, FixedAngle, LoaderPoint, LoaderPriority, PusherMode } from "./constants/public.js"
 
 export interface DecoderOptions {
@@ -70,8 +71,8 @@ export interface BuildCmdOptions {
 	item?: Item
 	/** A {@link BuildBits} instance. */
 	bits?: BuildBits
-	/** Shape index of the tile to be placed. */
-	shape?: number
+	/** Shape of the block to be placed. */
+	shape?: Shape
 }
 
 /**

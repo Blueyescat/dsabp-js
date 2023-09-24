@@ -1,5 +1,5 @@
 interface C<T> {
-	new(arg: any): T
+	new(...args: any[]): T
 	maps: any
 	getMap: any
 	getReverseMap: any
