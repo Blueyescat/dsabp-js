@@ -21,13 +21,12 @@
 <li>Encoded blueprint values aren&#39;t forced to be valid in the game. (Allows experimenting)</li>
 <li>The generated blueprint strings won&#39;t be identical to what the game generates and may be shorter or longer.</li>
 <li>In Node.js, the built-in <a href="https://nodejs.org/api/zlib.html">zlib</a> module is used for  deflate and inflate operations, and the <a href="https://nodejs.org/api/buffer.html">Buffer</a> class is used for Base64 operations. In the browser, the <a href="https://github.com/101arrowz/fflate">fflate</a> library (8.3KB) and the <a href="https://github.com/Blueyescat/dsabp-js/blob/main/src/injBrowser.ts">atob-btoa</a> functions are used. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API">Compression Streams API</a> is not used for a few reasons.</li>
-<li>I do plan to add shape enum.</li>
 </ul>
 <a id="md:install" class="tsd-anchor"></a><h2><a href="#md:install">Install</a></h2><a id="md:nodejs" class="tsd-anchor"></a><h4><a href="#md:nodejs">Node.js</a></h4><ul>
 <li><code>npm install dsabp-js</code> &nbsp;or&nbsp; <code>yarn add dsabp-js</code></li>
 </ul>
 <a id="md:browser" class="tsd-anchor"></a><h4><a href="#md:browser">Browser</a></h4><ul>
-<li>Get the files you need from <code>/dist</code> in the package: <a href="https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.2.0.tgz">https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.2.0.tgz</a><!--@build_tarball--></li>
+<li>Get the files you need from <code>/dist</code> in the package: <a href="https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.3.0.tgz">https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.3.0.tgz</a><!--@build_tarball--></li>
 <li>Or use a CDN:<ul>
 <li><a href="https://cdn.jsdelivr.net/npm/dsabp-js/">https://cdn.jsdelivr.net/npm/dsabp-js/</a></li>
 <li><a href="https://unpkg.com/browse/dsabp-js/">https://unpkg.com/browse/dsabp-js/</a></li>
@@ -102,6 +101,7 @@
 <li><a href="enums/LoaderPoint.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>LoaderPoint</a></li>
 <li><a href="enums/LoaderPriority.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>LoaderPriority</a></li>
 <li><a href="enums/PusherMode.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>PusherMode</a></li>
+<li><a href="enums/Shape.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-8"></use></svg>Shape</a></li>
 <li><a href="classes/BPCmd.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>BPCmd</a></li>
 <li><a href="classes/Blueprint.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>Blueprint</a></li>
 <li><a href="classes/BuildBits.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-128"></use></svg>BuildBits</a></li>
@@ -116,7 +116,6 @@
 <li><a href="interfaces/LoaderConfig.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>LoaderConfig</a></li>
 <li><a href="interfaces/PusherConfig.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-256"></use></svg>PusherConfig</a></li>
 <li><a href="variables/PREFIX.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-32"></use></svg>PREFIX</a></li>
-<li><a href="functions/decode.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-64"></use></svg>decode</a></li>
 <li>Loading...</li></ul></nav></div></div></div>
 <div class="tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" rel="noopener" target="_blank">TypeDoc</a></p></div>

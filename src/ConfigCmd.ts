@@ -51,7 +51,7 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 	}
 	static set defaults(input) {
 		if (input != null && Object.getPrototypeOf(input) != Object.prototype)
-			throw new TypeError("defaults can only be set to an Object literal")
+			throw new TypeError("defaults can only be set to an object literal")
 		defaults = input
 	}
 
@@ -74,7 +74,7 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 			Object.defineProperty(this, prop, { configurable: false })
 		if (input != null) {
 			if (Object.getPrototypeOf(input) != Object.prototype)
-				throw new TypeError("input must be an Object literal")
+				throw new TypeError("input must be an object literal")
 			this.set(input)
 		}
 	}

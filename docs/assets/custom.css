@@ -64,6 +64,10 @@ code {
     border-radius: 6px;
 }
 
+small>code {
+    font-size: smaller;
+}
+
 pre>button {
     border-radius: 5px;
     background-color: #1e1e1e;

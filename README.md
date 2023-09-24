@@ -8,14 +8,13 @@ A TypeScript library to decode, create, modify and encode blueprints for the [De
 - Encoded blueprint values aren't forced to be valid in the game. (Allows experimenting)
 - The generated blueprint strings won't be identical to what the game generates and may be shorter or longer.
 - In Node.js, the built-in [zlib](https://nodejs.org/api/zlib.html) module is used for  deflate and inflate operations, and the [Buffer](https://nodejs.org/api/buffer.html) class is used for Base64 operations. In the browser, the [fflate](https://github.com/101arrowz/fflate) library (8.3KB) and the [atob-btoa](https://github.com/Blueyescat/dsabp-js/blob/main/src/injBrowser.ts) functions are used. The [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API) is not used for a few reasons.
-- I do plan to add shape enum.
 
 ## Install
 #### Node.js
 - `npm install dsabp-js` &nbsp;or&nbsp; `yarn add dsabp-js`
 
 #### Browser
-- Get the files you need from `/dist` in the package: https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.2.0.tgz<!--@build_tarball-->
+- Get the files you need from `/dist` in the package: https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.3.0.tgz<!--@build_tarball-->
 - Or use a CDN:
   - https://cdn.jsdelivr.net/npm/dsabp-js/
   - https://unpkg.com/browse/dsabp-js/

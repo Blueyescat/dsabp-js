@@ -19,7 +19,7 @@ export class BuildCmd extends BPCmd implements BuildCmdOptions {
 			Object.defineProperty(this, prop, { configurable: false })
 		if (input != null) {
 			if (Object.getPrototypeOf(input) != Object.prototype)
-				throw new TypeError("input must be an Object literal")
+				throw new TypeError("input must be an object literal")
 			this.set(input)
 		}
 	}

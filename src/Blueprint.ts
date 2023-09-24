@@ -17,24 +17,24 @@ export class Blueprint implements BlueprintOptions {
 	constructor(input?: BlueprintOptions) {
 		for (const prop in this)
 			Object.defineProperty(this, prop, { configurable: false })
-		if (typeof input == "undefined") {
+		if (input == null) {
 			this.version = 0
 			this.width = 1
 			this.height = 1
 			this.commands = []
-		} else if (input != null && Object.getPrototypeOf(input) == Object.prototype) {
+		} else if (Object.getPrototypeOf(input) == Object.prototype) {
 			this.version = input.version ?? 0
 			this.width = input.width ?? 1
 			this.height = input.height ?? 1
-			if (input.commands != null) {
+			if (input.commands == null) {
+				this.commands = []
+			} else {
 				if (!Array.isArray(input.commands))
 					throw new TypeError("input.commands must be an array")
 				this.commands = input.commands
-			} else {
-				this.commands = []
 			}
 		} else {
-			throw new TypeError("input must be an Object literal")
+			throw new TypeError("input must be an object literal")
 		}
 	}
 
