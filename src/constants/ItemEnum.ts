@@ -1,14 +1,13 @@
 import { Enum } from "./Enum.js"
 
 /**
- * The item data in the constants may be unstable, as it is pulled from the game source code
- * without any edits or checks, including the property names.
- * It may also become outdated since it is only updated with a release of the library.
+ * The item names, IDs and data are taken directly from the game source.
  *
- * If you use the item data, it is up to you to test it.
- * The major version won't be incremented for any breaking changes to the item data.
+ * The item data may be unstable because it is not edited or checked, including the
+ * property names. If you use it, it is up to you to test it and handle the game changes.
+ * The major version won't be incremented for any breaking changes to it.
  *
- * Generated using test.drednot.io version: `Wed Sep 20 18:36:51 MDT 2023 / 4372899805f7bcec86a89f6514240aae870290a1`.
+ * <small>Generated using test.drednot.io version: `Fri Sep 22 17:00:10 MDT 2023 / 4c521f8`</small>
  */
 export class Item extends Enum<number> {
 	declare readonly name?: string

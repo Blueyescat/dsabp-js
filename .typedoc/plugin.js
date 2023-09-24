@@ -29,7 +29,7 @@ export function load(app) {
 					clsRef.comment = new Comment()
 				clsRef.comment.summary.push({
 					kind: "text",
-					text: "\r\n\r\nThis is a class that extends the `Enum` class.",
+					text: "\r\n\r\n> This is a class that extends the `Enum` class.",
 				})
 
 				for (const cld of reflection.children) {
