@@ -10,13 +10,13 @@ import { Enum } from "./Enum.js"
  * <small>Generated using test.drednot.io version: `Fri Sep 22 17:00:10 MDT 2023 / 4c521f8`</small>
  */
 export class Item extends Enum<number> {
-	declare readonly name?: string
-	declare readonly description?: string
-	declare readonly stackable?: boolean
-	declare readonly rarity?: number
+	readonly name: string
+	readonly description: string
+	readonly stackable: boolean
+	readonly rarity: number
 	declare readonly image?: string
 	/**
-	 * Each object in this array represents a build info with different rotations, usually only 2.
+	 * Each object in this array represents build info with different rotations, usually 1 or 2.
 	 *
 	 * The object will have a `buildDirection` property, except when there is only 1 build info.
 	 */
@@ -24,12 +24,12 @@ export class Item extends Enum<number> {
 	declare readonly blacklist_autobuild?: boolean
 	declare readonly fab_type?: "Legacy" | "Starter" | "Munitions" | "Engineering" | "Machine" | "Equipment"
 
-	constructor(id: number, name?, description?, stackable?, rarity?, image?, buildInfo?, blacklist_autobuild?, fab_type?) {
+	constructor(id, name, description, stackable, rarity, image?, buildInfo?, blacklist_autobuild?, fab_type?) {
 		super(id)
-		if (name !== undefined) this.name = name
-		if (description !== undefined) this.description = description
-		if (stackable !== undefined) this.stackable = stackable
-		if (rarity !== undefined) this.rarity = rarity
+		this.name = name
+		this.description = description
+		this.stackable = stackable
+		this.rarity = rarity
 		if (image !== undefined) this.image = image
 		if (buildInfo !== undefined) this.buildInfo = buildInfo
 		if (blacklist_autobuild !== undefined) this.blacklist_autobuild = blacklist_autobuild
@@ -44,7 +44,7 @@ export class Item extends Enum<number> {
 	/** Returns an {@link Item} with the specified ID, or undefined if not found. Alias to {@link Item.getByValue | getByValue}. */
 	static getById(id: number) { return Item.getByValue(id) }
 
-	static NULL = new this(0)
+	static NULL = new this(0, "", "", false, NaN)
 	/**Iron*/
 	static RES_METAL = new this(1, "Iron", "Material. Used to produce most items.", true, 0, "item/res_iron")
 	/**Explosives*/
