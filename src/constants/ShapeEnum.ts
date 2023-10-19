@@ -8,12 +8,14 @@ import { Enum } from "./Enum.js"
  *
  * The {@link vertices} are sorted to prevent them from overlapping.
  *
- * <small>Generated using test.drednot.io version: `Fri Sep 22 17:00:10 MDT 2023 / 4c521f8`</small>
+ * <small>Generated using test.drednot.io version: `Wed Oct 18 17:42:13 MDT 2023 / 1944d9d`</small>
  */
 export class Shape extends Enum<number> {
 	constructor(v: number, readonly vertices: { x: number, y: number }[]) {
 		super(v)
 	}
+	/** Checks whether the shape has a flat and full top surface. */
+	get isBuildSurface() { return Shape.buildSurfaceShapes.has(this) }
 	/**⣿⣿⣿⣿\
 	   ⣿⣿⣿⣿*/
 	static BLOCK = new this(0, [{x:-0.5,y:-0.5},{x:0.5,y:-0.5},{x:0.5,y:0.5},{x:-0.5,y:0.5}])
@@ -150,4 +152,6 @@ export class Shape extends Enum<number> {
 	   ⣿⣿⣿⣿*/
 	static BEVEL_UL = new this(44, [{x:-0.5,y:-0.5},{x:0.5,y:-0.5},{x:0.5,y:0.5},{x:0,y:0.5},{x:-0.5,y:0}])
 	static { this.end() }
+	/** Set of shapes with a flat and full top surface. */
+	static buildSurfaceShapes = new Set([this.BLOCK,this.RAMP_DR,this.RAMP_DL,this.SLAB_D,this.HALF_RAMP_1_D,this.HALF_RAMP_2_R,this.HALF_RAMP_2_D,this.HALF_RAMP_1_DI,this.HALF_RAMP_2_DI,this.HALF_RAMP_2_LI,this.BEVEL_DR,this.BEVEL_DL])
 }
