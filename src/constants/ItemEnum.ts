@@ -7,7 +7,7 @@ import { Enum } from "./Enum.js"
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Fri Sep 22 17:00:10 MDT 2023 / 4c521f8`</small>
+ * <small>Generated using test.drednot.io version: `Wed Oct 18 17:42:13 MDT 2023 / 1944d9d`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -20,7 +20,7 @@ export class Item extends Enum<number> {
 	 *
 	 * The object will have a `buildDirection` property, except when there is only 1 build info.
 	 */
-	declare readonly buildInfo?: Array<Partial<{ bounds: { x: number, y: number }, shape: { verts: { x: number, y: number }[] }, allow_non_solids: boolean, image: string, image_only: boolean, snap_y: boolean, offset: { x: number, y: number }, require_blocks: { x: number, y: number, block: "_BUILD_SURFACE" | "AIR" | "HULL_CORNER" | "HULL_H" | "HULL_V" | "INTERIOR_BLOCK" | "LADDER" | "WALKWAY" | "ITEM_NET" | "RAMP_1" | "RAMP_2" | "RAMP_3" | "RAMP_4" | "COLOR_PANEL" | "HYPER_RUBBER" | "ICE_GLASS" | "ANNIHILATOR" }[], allow_solids: boolean, snap_x: boolean, buildDirection: "HORIZONTAL" | "VERTICAL", allow_world: boolean, block: number, block_shaped: boolean, block_is_colored: boolean, allow_any: boolean, build_angle: "Any" | "Fixed", is_lockdown_override: boolean, offset2: { x: number, y: number } }>>
+	declare readonly buildInfo?: Array<Partial<{ bounds: { x: number, y: number }, shape: { verts: { x: number, y: number }[] }, allow_non_solids: boolean, image: string, image_only: boolean, snap_y: boolean, offset: { x: number, y: number }, require_blocks: { x: number, y: number, block: "_BUILD_SURFACE" | "AIR" | "HULL_CORNER" | "HULL_H" | "HULL_V" | "INTERIOR_BLOCK" | "LADDER" | "WALKWAY" | "ITEM_NET" | "RAMP_1" | "RAMP_2" | "RAMP_3" | "RAMP_4" | "COLOR_PANEL" | "HYPER_RUBBER" | "ICE_GLASS" | "ANNIHILATOR" }[], allow_solids: boolean, snap_x: boolean, buildDirection: "HORIZONTAL" | "VERTICAL", allow_world: boolean, block: number, block_shaped: boolean, block_is_colored: boolean, allow_any: boolean, build_angle: "Any" | "Fixed", image_anim: string, is_lockdown_override: boolean, offset2: { x: number, y: number } }>>
 	declare readonly blacklist_autobuild?: boolean
 	declare readonly fab_type?: "Legacy" | "Starter" | "Munitions" | "Engineering" | "Machine" | "Equipment"
 
@@ -147,37 +147,37 @@ export class Item extends Enum<number> {
 	static TURRET_BOOSTER_PRESERVATION = new this(164, "Turret Booster - Preservation", "Boosts a re-configurable turret's ammo preservation by 10%, with reduced rotational aiming limits.", false, 2, "item/turret_booster_preservation")
 	/**Turret Booster - Preservation (Depleted)*/
 	static TURRET_BOOSTER_PRESERVATION_USED = new this(165, "Turret Booster - Preservation (Depleted)", "Boosts a re-configurable turret's ammo preservation by 5%, with reduced rotational aiming limits. Nearly depleted!", false, 2, "item/turret_booster_preservation_used")
-	/**Helm (Packaged)*/
+	/**Helm*/
 	static HELM = new this(215, "Helm (Packaged)", "Buildable. Used to pilot your ship.", false, 0, "item/helm", [{snap_y:true,offset:{x:0,y:0.3},bounds:{x:1.5,y:1.5},require_blocks:[{x:0,y:-1,block:"_BUILD_SURFACE"}],allow_solids:true,image:"helm_wheel",image_only:true}])
-	/**Helm (Starter, Packaged)*/
+	/**Helm (Starter)*/
 	static HELM_STARTER = new this(216, "Helm (Starter, Packaged)", "Buildable Starter Item. Used to pilot your ship.", false, -1, "item/helm_starter", [{snap_y:true,offset:{x:0,y:0.3},bounds:{x:1.5,y:1.5},require_blocks:[{x:0,y:-1,block:"_BUILD_SURFACE"}],allow_solids:true,image:"helm_wheel_starter",image_only:true}])
-	/**Comms Station (Packaged)*/
+	/**Comms Station*/
 	static COMMS_STATION = new this(217, "Comms Station (Packaged)", "Buildable. Used to communicate with other ships.", false, 0, "item/comms", [{snap_y:true,offset:{x:0,y:-0.25},bounds:{x:1.25,y:2.5},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"comms_station",image_only:true}])
-	/**Sign (Packaged)*/
+	/**Sign*/
 	static SIGN = new this(218, "Sign (Packaged)", "Buildable. Can display a short message.", false, 0, "item/sign", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true,image:"sign"}], true)
-	/**Spawn Point (Packaged)*/
+	/**Spawn Point*/
 	static SPAWN_POINT = new this(219, "Spawn Point (Packaged)", "Buildable. Can be set to spawn a specific rank.", false, 0, "item/spawn", [{snap_y:true,offset:{x:0,y:0.5},bounds:{x:1,y:2},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"spawn"}], true)
-	/**Door (Packaged)*/
+	/**Door*/
 	static DOOR = new this(220, "Door (Packaged)", "Buildable. Can be restricted to specific ranks. Press R to rotate.", false, 0, "item/door", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,offset:{x:0.5,y:0},bounds:{x:2,y:0.45},image:"door_full"},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,offset:{x:0,y:0.5},bounds:{x:0.45,y:2},image:"door_full"}], true)
-	/**Cargo Hatch (Packaged)*/
+	/**Cargo Hatch*/
 	static ITEM_HATCH = new this(221, "Cargo Hatch (Packaged)", "Buildable. Drops items picked up by the ship.", false, 0, "item/item_hatch", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true}])
-	/**Cargo Hatch (Starter, Packaged)*/
+	/**Cargo Hatch (Starter)*/
 	static ITEM_HATCH_STARTER = new this(222, "Cargo Hatch (Starter, Packaged)", "Buildable Starter Item. Drops items picked up by the ship.", false, -1, "item/item_hatch_starter", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true}])
-	/**Cargo Ejector (Packaged)*/
+	/**Cargo Ejector*/
 	static ITEM_EJECTOR = new this(223, "Cargo Ejector (Packaged)", "Buildable. Can be used to eject items from the ship.", false, 0, "item/item_ejector", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Turret Controller (Packaged)*/
+	/**Turret Controller*/
 	static TURRET_CONTROLLER = new this(224, "Turret Controller (Packaged)", "Buildable. Controls adjacent turrets.", false, 0, "item/turret_controller", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**RC Turret (Packaged)*/
+	/**RC Turret*/
 	static TURRET_REMOTE = new this(226, "RC Turret (Packaged)", "Buildable. Controlled remotely from the helm.", false, 1, "item/turret_rc", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**RC Turret (Starter, Packaged)*/
+	/**RC Turret (Starter)*/
 	static TURRET_REMOTE_STARTER = new this(227, "RC Turret (Starter, Packaged)", "Buildable Starter Item. Controlled remotely from the helm.", false, -1, "item/turret_rc_starter", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Burst Turret (Packaged)*/
+	/**Burst Turret*/
 	static TURRET_BURST = new this(228, "Burst Turret (Packaged)", "Buildable. Fires a burst of shots.", false, 1, "item/turret_burst", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Auto Turret (Packaged)*/
+	/**Auto Turret*/
 	static TURRET_AUTO = new this(229, "Auto Turret (Packaged)", "Buildable. Fully automatic gun.", false, 1, "item/turret_auto", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Thruster (Packaged)*/
+	/**Thruster*/
 	static THRUSTER = new this(230, "Thruster (Packaged)", "Buildable. Moves your ship. Fuelled with explosives.", false, 0, "item/thruster", [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Thruster (Starter, Packaged)*/
+	/**Thruster (Starter)*/
 	static THRUSTER_STARTER = new this(231, "Thruster (Starter, Packaged)", "Buildable Starter Item. Moves your ship. Doesn't need fuel.", false, -1, "item/thruster_starter", [{snap_x:true,snap_y:true,bounds:{x:0.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_CORNER"}],allow_world:true}])
 	/**Iron Block*/
 	static BLOCK = new this(232, "Iron Block", "Buildable. Used for interior walls/floors.", true, 0, "item/block", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:4,block_shaped:true}])
@@ -193,32 +193,32 @@ export class Item extends Enum<number> {
 	static BLOCK_ITEM_NET = new this(237, "Item Net", "Buildable. Blocks items but not players.", true, 0, "item/item_net", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:7,block_shaped:true}])
 	/**Paint*/
 	static PAINT = new this(239, "Paint", "Used to paint your ship's background. Hold R to select color.", true, 0, "item/color_panel", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block_is_colored:true,allow_world:true,allow_any:true}], true)
-	/**Expando Box (Packaged)*/
+	/**Expando Box*/
 	static EXPANDO_BOX = new this(240, "Expando Box (Packaged)", "Buildable. Flexible bulk storage.", false, 0, "item/exbox", [{bounds:{x:2,y:2},shape:{verts:[{x:-0.95,y:-0.75},{x:-0.75,y:-0.95},{x:0.75,y:-0.95},{x:0.95,y:-0.75},{x:0.95,y:0.75},{x:0.75,y:0.95},{x:-0.75,y:0.95},{x:-0.95,y:0.75}]},allow_non_solids:true,build_angle:"Any",image:"exbox_base",image_only:true}])
 	/**Safety Anchor*/
 	static FREEPORT_ANCHOR = new this(241, "Safety Anchor", "Buildable. Prevents teleports out of safe zones while placed.", false, 0, "item/anchor", [{bounds:{x:3,y:3},snap_x:true,snap_y:true,image:"anchor"}])
-	/**Pusher (Packaged)*/
-	static PUSHER = new this(242, "Pusher (Packaged)", "Buildable. Pushes things.", false, 2, "item/pusher", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},image:"loader_base",image_only:true}])
-	/**Item Launcher (Packaged)*/
+	/**Pusher*/
+	static PUSHER = new this(242, "Pusher (Packaged)", "Buildable. Pushes things.", false, 2, "item/pusher", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},image:"loader_base",image_anim:"pusher",image_only:true}])
+	/**Item Launcher*/
 	static ITEM_LAUNCHER = new this(243, "Item Launcher (Packaged)", "Buildable. Launches items at a configurable speed and angle.", false, 2, "item/item_launcher", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},image:"item_launcher",image_only:true}], true)
 	/**DEPRECATED ITEM*/
 	static LOADER = new this(244, "DEPRECATED ITEM", "DEPRECATED ITEM", false, 2, "item/loader_old")
-	/**Recycler (Packaged)*/
+	/**Recycler*/
 	static RECYCLER = new this(245, "Recycler (Packaged)", "Buildable. Converts items back into resources.", false, 0, "item/recycler", [{snap_y:true,offset:{x:0,y:0.25},bounds:{x:2.25,y:3.5},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"recycler",image_only:true}])
-	/**Fabricator (Legacy, Packaged)*/
+	/**Fabricator (Legacy)*/
 	static FABRICATOR_GOLD = new this(246, "Fabricator (Legacy, Packaged)", "Buildable. It doesn't do anything.", false, 9, "item/fabricator_legacy", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Legacy")
-	/**Fabricator (Starter, Packaged)*/
+	/**Fabricator (Starter)*/
 	static FABRICATOR_STARTER = new this(247, "Fabricator (Starter, Packaged)", "Buildable Starter Item. Used to craft basic items.", false, -1, "item/fabricator_starter", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Starter")
-	/**Fabricator (Munitions, Packaged)*/
+	/**Fabricator (Munitions)*/
 	static FABRICATOR_MUNITIONS = new this(248, "Fabricator (Munitions, Packaged)", "Buildable. Used to craft ammo and other consumables.", false, 0, "item/fabricator_munitions", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Munitions")
-	/**Fabricator (Engineering, Packaged)*/
+	/**Fabricator (Engineering)*/
 	static FABRICATOR_ENGINEERING = new this(249, "Fabricator (Engineering, Packaged)", "Buildable. Used to craft tools, blocks, and security items.", false, 0, "item/fabricator_engineering", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Engineering")
-	/**Fabricator (Machine, Packaged)*/
+	/**Fabricator (Machine)*/
 	static FABRICATOR_MACHINE = new this(250, "Fabricator (Machine, Packaged)", "Buildable. Used to craft machines such as fabricators, helms, and turrets.", false, 0, "item/fabricator_machine", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Machine")
-	/**Fabricator (Equipment, Packaged)*/
+	/**Fabricator (Equipment)*/
 	static FABRICATOR_EQUIPMENT = new this(251, "Fabricator (Equipment, Packaged)", "Buildable. Used to craft wearable equipment.", false, 0, "item/fabricator_equipment", [{snap_y:true,bounds:{x:2.5,y:3},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"fab_lod",image_only:true}], undefined, "Equipment")
-	/**Loader (Packaged)*/
-	static LOADER_NEW = new this(252, "Loader (Packaged)", "Buildable. Loads items into machines.", false, 2, "item/loader", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},image:"loader_base",image_only:true}])
+	/**Loader*/
+	static LOADER_NEW = new this(252, "Loader (Packaged)", "Buildable. Loads items into machines.", false, 2, "item/loader", [{snap_x:true,snap_y:true,bounds:{x:1,y:1},image:"loader_base",image_anim:"loader",image_only:true}])
 	/**Lockdown Override Unit*/
 	static LOCKDOWN_OVERRIDE_GREEN = new this(253, "Lockdown Override Unit", "Buildable. Allows a limited number of green rarity items to be removed from a ship while in lockdown mode.", false, 2, "item/lockdown_override_green", [{bounds:{x:1,y:1},snap_x:true,snap_y:true,image:"lockdown_override_green",is_lockdown_override:true}], true)
 	/**Annihilator Tile*/
@@ -231,11 +231,11 @@ export class Item extends Enum<number> {
 	static SHIELD_PROJECTOR = new this(257, "Shield Projector", "Buildable. Used to activate an adjacent bank of shield tanks.", false, 2, "item/shield_projector", [{bounds:{x:1,y:1},snap_x:true,snap_y:true,image:"shield_projector_1"}])
 	/**Enhanced Turret Controller*/
 	static TURRET_CONTROLLER_NEW = new this(258, "Enhanced Turret Controller", "Buildable. Used to control turrets remotely.", false, 2, "item/turret_controller_new", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
-	/**Bulk Ejector (Packaged)*/
+	/**Bulk Ejector*/
 	static BULK_EJECTOR = new this(259, "Bulk Ejector (Packaged)", "Buildable. WIP / UNOBTAINABLE", false, 2, "item/bulk_ejector", [{bounds:{x:2,y:2},snap_x:true,snap_y:true,offset:{x:0.5,y:0.5},offset2:{x:-0.5,y:-0.5},build_angle:"Fixed"}])
-	/**Bulk Loading Bay Designator (Packaged)*/
+	/**Bulk Loading Bay Designator*/
 	static BULK_BAY_MARKER = new this(260, "Bulk Loading Bay Designator (Packaged)", "Buildable. WIP / UNOBTAINABLE", false, 2, "item/bulk_bay_marker", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
-	/**Navigation Unit (Starter, Packaged)*/
+	/**Navigation Unit (Starter)*/
 	static NAV_UNIT = new this(261, "Navigation Unit (Starter, Packaged)", "Buildable Starter Item. Used to select a destination zone. Also functions as a simple shield projector.", false, -1, "item/nav_unit", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
 	/**Eternal Bronze Wrench*/
 	static ETERNAL_WRENCH_BRONZE = new this(300, "Eternal Bronze Wrench", "Patron reward. Will not despawn. Thank you for your support! 😀", false, -1, "item/wrench_bronze_et")
