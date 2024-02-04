@@ -7,7 +7,7 @@ import { Enum } from "./Enum.js"
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Wed Oct 18 17:42:13 MDT 2023 / 1944d9d`</small>
+ * <small>Generated using test.drednot.io version: `Sat Feb 3 12:37:25 MST 2024 / 2079cd9`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -236,7 +236,7 @@ export class Item extends Enum<number> {
 	/**Bulk Loading Bay Designator*/
 	static BULK_BAY_MARKER = new this(260, "Bulk Loading Bay Designator (Packaged)", "Buildable. WIP / UNOBTAINABLE", false, 2, "item/bulk_bay_marker", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
 	/**Navigation Unit (Starter)*/
-	static NAV_UNIT = new this(261, "Navigation Unit (Starter, Packaged)", "Buildable Starter Item. Used to select a destination zone. Also functions as a simple shield projector.", false, -1, "item/nav_unit", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
+	static NAV_UNIT = new this(261, "Navigation Unit (Starter, Packaged)", "Buildable Starter Item. Used to select a destination zone and initiate emergency warps. Also functions as a simple shield projector.", false, -1, "item/nav_unit", [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
 	/**Eternal Bronze Wrench*/
 	static ETERNAL_WRENCH_BRONZE = new this(300, "Eternal Bronze Wrench", "Patron reward. Will not despawn. Thank you for your support! 😀", false, -1, "item/wrench_bronze_et")
 	/**Eternal Silver Wrench*/
