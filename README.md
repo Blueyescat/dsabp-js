@@ -14,7 +14,7 @@ A TypeScript library to decode, create, modify and encode blueprints for the [De
 - `npm install dsabp-js` &nbsp;or&nbsp; `yarn add dsabp-js`
 
 #### Browser
-- Get the files you need from `/dist` in the package: https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.4.0.tgz<!--@build_tarball-->
+- Get the files you need from `/dist` in the package: https://registry.npmjs.org/dsabp-js/-/dsabp-js-0.4.1.tgz<!--@build_tarball-->
 - Or use a CDN:
   - https://cdn.jsdelivr.net/npm/dsabp-js/
   - https://unpkg.com/browse/dsabp-js/
