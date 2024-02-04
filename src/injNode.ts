@@ -12,7 +12,7 @@ export function createWorker() {
 					data.result = new lib.Decoder().decodeSync(data.args.input, data.args.options)
 						.toArray()
 				} catch (err) {
-					data.err = err
+					data.err = err.message
 				}
 				delete data.args
 				self.postMessage(data)
@@ -20,7 +20,7 @@ export function createWorker() {
 				try {
 					data.result = new lib.Decoder().decodeConfigCmdData(data.args.rawData)
 				} catch (err) {
-					data.err = err
+					data.err = err.message
 				}
 				delete data.args
 				self.postMessage(data)
@@ -29,7 +29,7 @@ export function createWorker() {
 					const bp = new lib.Blueprint().fillFromArray(data.args.input)
 					data.result = new lib.Encoder().encodeSync(bp)
 				} catch (err) {
-					data.err = err
+					data.err = err.message
 				}
 				delete data.args
 				self.postMessage(data)
