@@ -187,6 +187,8 @@ export class ConfigCmd extends BPCmd implements ConfigCmdOptions {
 
 	clone(): ConfigCmd {
 		const clone = Object.assign(Object.create(Object.getPrototypeOf(this)), this)
+		clone.pusher = { ...this.pusher }
+		clone.loader = { ...this.loader }
 		if (this.rawData)
 			clone.rawData = new Uint8Array(this.rawData)
 		return clone
