@@ -7,7 +7,7 @@ import { Enum } from "./Enum.js"
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Sat Feb 3 12:37:25 MST 2024 / 2079cd9`</small>
+ * <small>Generated using test.drednot.io version: `Tue Feb 13 22:16:29 MST 2024 / 8acafd0`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -55,8 +55,10 @@ export class Item extends Enum<number> {
 	static RES_FLUX = new this(5, "Flux Crystals", "Material. Used to produce advanced machinery.", true, 2, "item/res_flux_crystals")
 	/**Thruster Fuel*/
 	static RES_FUEL = new this(6, "Thruster Fuel", "Refined fuel. Powers thrusters. More efficient than explosives.", true, 0, "item/fuel")
-	/**Scrap Metal*/
-	static SCRAP_METAL = new this(50, "Scrap Metal", "Can be processed by a recycler.", true, 0, "item/scrap")
+	/**Compressed Explosives*/
+	static COMPRESSED_EXPLOSIVES = new this(49, "Compressed Explosives", "Explosives, compressed into a flux matrix at a 16:1 ratio. Unpack with a recycler.", true, 2, "item/comp_exp")
+	/**Compressed Iron*/
+	static COMPRESSED_IRON = new this(50, "Compressed Iron", "Iron, compressed into a flux matrix at a 24:1 ratio. Unpack with a recycler.", true, 2, "item/comp_iron")
 	/**Volleyball*/
 	static BALL_VOLLEY = new this(51, "Volleyball", "🏐", false, 2, "item/ball_volley")
 	/**Golden Volleyball*/
@@ -289,5 +291,7 @@ export class Item extends Enum<number> {
 	static GREMLIN_ORANGE = new this(324, "Wild Gremlin (Orange)", "It looks upset.", false, 0, "item/gremlin_orange")
 	/**Wild Gremlin (Yellow)*/
 	static GREMLIN_YELLOW = new this(325, "Wild Gremlin (Yellow)", "It looks upset.", false, 0, "item/gremlin_yellow")
+	/**Elimination Trophy*/
+	static TROPHY_ELIMINATION = new this(326, "Elimination Trophy", "Awarded to Elimination PvP event winners.", false, 9, "item/trophy_elim")
 	static { this.end() }
 }
