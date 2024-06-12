@@ -48,7 +48,7 @@ If you load it using methods such as `import()` (ESM) from a content script or b
 
 ## Usage
 * [Documentation](https://blueyescat.github.io/dsabp-js/modules)
-* [DSA Tools - Blueprint Editor](https://dsatools.pages.dev/bpeditor) is made using dsabp-js.
+* [DSA Tools](https://dsa.fr.to) uses dsabp-js for the blueprint related stuff.
 * **A Simple Example**
   ```js
   import { decode, BuildCmd, Item, encode } from "dsabp-js"
