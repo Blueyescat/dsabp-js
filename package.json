@@ -1,6 +1,6 @@
 {
   "name": "dsabp-js",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "DSA (drednot.io) Blueprint implementation and API for Node.js and the browser, in TypeScript.",
   "homepage": "https://github.com/Blueyescat/dsabp-js",
   "bugs": "https://github.com/Blueyescat/dsabp-js/issues",
