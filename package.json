@@ -37,15 +37,15 @@
     "docs": "typedoc --options ./.typedoc/config.json"
   },
   "devDependencies": {
-    "@types/node": "^20.14.2",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
     "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.21.1",
-    "eslint": "^8.56.0",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
     "fflate": "^0.8.2",
-    "typedoc": "^0.25.13",
-    "typescript": "^5.4.5"
+    "typedoc": "^0.26.3",
+    "typescript": "^5.5.3"
   },
   "keywords": [
     "Deep Space Airships",
