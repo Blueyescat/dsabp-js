@@ -9,7 +9,7 @@ export type FabricatorType = "Legacy" | "Starter" | "Munitions" | "Engineering" 
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Mon Jun 10 21:16:55 MDT 2024 / 496ae6c`</small>
+ * <small>Generated using test.drednot.io version: `Fri Jul 5 17:23:08 MDT 2024 / 4aa4402`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -19,9 +19,10 @@ export class Item extends Enum<number> {
 	declare readonly image?: string
 	declare readonly recipe?: Array<Partial<{ count: number, time: number, input: { item: number, count: number }[], built_by: FabricatorType[] }>>
 	/**
-	 * Each object in this array represents build info with different rotations, usually 1 or 2.
+	 * Each object in this array represents build information for different cases. For example, two for cannons,
+	 * for vertical and horizontal placement, and three for ejectors, including one for placement inside the ship.
 	 *
-	 * The object will have a `buildDirection` property, except when there is only 1 build info.
+	 * The object may have a `buildDirection` property to specify the build direction on the ship hull.
 	 */
 	declare readonly buildInfo?: Array<Partial<{ bounds: { x: number, y: number }, shape: { verts: { x: number, y: number }[] }, allow_non_solids: boolean, image: string, image_only: boolean, snap_y: boolean, offset: { x: number, y: number }, require_blocks: { x: number, y: number, block: "_BUILD_SURFACE" | "AIR" | "HULL_CORNER" | "HULL_H" | "HULL_V" | "INTERIOR_BLOCK" | "LADDER" | "WALKWAY" | "ITEM_NET" | "RAMP_1" | "RAMP_2" | "RAMP_3" | "RAMP_4" | "COLOR_PANEL" | "HYPER_RUBBER" | "ICE_GLASS" | "ANNIHILATOR" }[], allow_solids: boolean, snap_x: boolean, buildDirection: "HORIZONTAL" | "VERTICAL", allow_world: boolean, block: number, block_shaped: boolean, block_is_colored: boolean, allow_any: boolean, build_angle: "Any" | "Fixed", image_anim: string, is_lockdown_override: boolean, offset2: { x: number, y: number } }>>
 	declare readonly blacklist_autobuild?: boolean
@@ -124,21 +125,21 @@ export class Item extends Enum<number> {
 	/**Shield Core*/
 	static SHIELD_CORE = new this(123, "Shield Core", "A power source for shield generators.", false, 1, "item/shield_core")
 	/**Standard Ammo*/
-	static AMMO_STANDARD = new this(150, "Standard Ammo", "Fast reloads.", true, 0, "item/ammo_standard", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Starter","Munitions"]})
+	static AMMO_STANDARD = new this(150, "Standard Ammo", "Fast reloads.", true, 0, "item/ammo_standard", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Starter","Munitions"]})
 	/**ScatterShot Ammo*/
-	static AMMO_SCATTER = new this(151, "ScatterShot Ammo", "Shoots multiple projectiles. Good for damaging critical ships.", true, 0, "item/ammo_scattershot", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	static AMMO_SCATTER = new this(151, "ScatterShot Ammo", "Shoots multiple projectiles. Significant damage at close range, with knock-back.", true, 0, "item/ammo_scattershot", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	/**Flak Ammo*/
-	static AMMO_FLAK = new this(152, "Flak Ammo", "Explodes into more bullets in flight.", true, 0, "item/ammo_flak", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
-	/**Sniper Ammo*/
-	static AMMO_SNIPER = new this(153, "Sniper Ammo", "Flies swift & true. Bouncy.", true, 0, "item/ammo_sniper", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	static AMMO_FLAK = new this(152, "Flak Ammo", "Explodes into more bullets in flight.", true, 0, "item/ammo_flak", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	/**Ricochet Ammo*/
+	static AMMO_SNIPER = new this(153, "Ricochet Ammo", "Speedy. Gains power from bouncing.", true, 0, "item/ammo_ricochet", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	/**Punch Ammo*/
-	static AMMO_PUNCH = new this(154, "Punch Ammo", "Pushes objects away.", true, 0, "item/ammo_punch", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	static AMMO_PUNCH = new this(154, "Punch Ammo", "Pushes objects away.", true, 0, "item/ammo_punch", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	/**Yank Ammo*/
-	static AMMO_YANK = new this(155, "Yank Ammo", "Pulls objects.", true, 0, "item/ammo_yank", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	static AMMO_YANK = new this(155, "Yank Ammo", "Pulls objects.", true, 0, "item/ammo_yank", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	/**Slug Ammo*/
-	static AMMO_SLUG = new this(156, "Slug Ammo", "Huge damage. Very slow.", true, 0, "item/ammo_slug", {count:4,time:3,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
-	/**Trash Ammo*/
-	static AMMO_TRASH = new this(157, "Trash Ammo", "Low quality, but free! Decays over time.", true, 0, "item/ammo_trash", {count:1,time:3,input:[],built_by:["Starter","Munitions"]})
+	static AMMO_SLUG = new this(156, "Slug Ammo", "Slow bullet. Gains speed and damage as it falls.", true, 0, "item/ammo_slug", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	/**Trash Box*/
+	static AMMO_TRASH = new this(157, "Trash Box", "Low quality, but free! Decays over time.", true, 0, "item/ammo_trash", {count:1,time:3,input:[],built_by:["Munitions"]})
 	/**Booster Fuel (Low Grade)*/
 	static FUEL_BOOSTER_LOW = new this(159, "Booster Fuel (Low Grade)", "Increases thruster power for a short time.", false, 0, "item/booster_low", {count:1,time:30,input:[{item:2,count:16}],built_by:["Munitions"]})
 	/**Booster Fuel (High Grade)*/
@@ -153,6 +154,12 @@ export class Item extends Enum<number> {
 	static TURRET_BOOSTER_PRESERVATION = new this(164, "Turret Booster - Preservation", "Boosts a re-configurable turret's ammo preservation by 10%, with reduced rotational aiming limits.", false, 2, "item/turret_booster_preservation")
 	/**Turret Booster - Preservation (Depleted)*/
 	static TURRET_BOOSTER_PRESERVATION_USED = new this(165, "Turret Booster - Preservation (Depleted)", "Boosts a re-configurable turret's ammo preservation by 5%, with reduced rotational aiming limits. Nearly depleted!", false, 2, "item/turret_booster_preservation_used")
+	/**Cooling Cell*/
+	static COOLING_CELL = new this(166, "Cooling Cell", "Prevents gatling cannons from damaging themselves.", false, 0, "item/cooling_cell")
+	/**Cooling Cell (Hot)*/
+	static COOLING_CELL_HOT = new this(167, "Cooling Cell (Hot)", "Will take some time to cool back down.", false, 0, "item/cooling_cell_hot")
+	/**Burst Charge*/
+	static BURST_CHARGE = new this(168, "Burst Charge", "Power source for burst cannons. Overcharging cannons may result in damage!", false, 0, "item/burst_charge")
 	/**Helm*/
 	static HELM = new this(215, "Helm (Packaged)", "Buildable. Used to pilot your ship.", false, 0, "item/helm", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{snap_y:true,offset:{x:0,y:0.3},bounds:{x:1.5,y:1.5},require_blocks:[{x:0,y:-1,block:"_BUILD_SURFACE"}],allow_solids:true,image:"helm_wheel",image_only:true}])
 	/**Helm (Starter)*/
@@ -170,17 +177,17 @@ export class Item extends Enum<number> {
 	/**Cargo Hatch (Starter)*/
 	static ITEM_HATCH_STARTER = new this(222, "Cargo Hatch (Starter, Packaged)", "Buildable Starter Item. Drops items picked up by the ship.", false, -1, "item/item_hatch_starter", undefined, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true}])
 	/**Cargo Ejector*/
-	static ITEM_EJECTOR = new this(223, "Cargo Ejector (Packaged)", "Buildable. Can be used to eject items from the ship.", false, 0, "item/item_ejector", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
+	static ITEM_EJECTOR = new this(223, "Cargo Ejector (Packaged)", "Buildable. Ejects items from the ship.", false, 0, "item/item_ejector", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true},{snap_x:true,snap_y:true,bounds:{x:1,y:1},build_angle:"Fixed"}])
 	/**Turret Controller*/
 	static TURRET_CONTROLLER = new this(224, "Turret Controller (Packaged)", "Buildable. Controls adjacent turrets.", false, 0, "item/turret_controller", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**RC Turret*/
-	static TURRET_REMOTE = new this(226, "RC Turret (Packaged)", "Buildable. Controlled remotely from the helm.", false, 1, "item/turret_rc", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**RC Turret (Starter)*/
-	static TURRET_REMOTE_STARTER = new this(227, "RC Turret (Starter, Packaged)", "Buildable Starter Item. Controlled remotely from the helm.", false, -1, "item/turret_rc_starter", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Burst Turret*/
-	static TURRET_BURST = new this(228, "Burst Turret (Packaged)", "Buildable. Fires a burst of shots.", false, 1, "item/turret_burst", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
-	/**Auto Turret*/
-	static TURRET_AUTO = new this(229, "Auto Turret (Packaged)", "Buildable. Fully automatic gun.", false, 1, "item/turret_auto", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
+	/**Cannon*/
+	static TURRET_REMOTE = new this(226, "Cannon (Packaged)", "Buildable. A normal cannon that you can use to shoot things.", false, 1, "item/turret_rc", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
+	/**Starter Cannon*/
+	static TURRET_REMOTE_STARTER = new this(227, "Starter Cannon (Packaged)", "Buildable Starter Item. Slowly re-generates ammo when empty.", false, -1, "item/turret_rc_starter", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
+	/**Burst Cannon*/
+	static TURRET_BURST = new this(228, "Burst Cannon (Packaged)", "Buildable. Fires a burst of shots.", false, 1, "item/turret_burst", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
+	/**Gatling Cannon*/
+	static TURRET_AUTO = new this(229, "Gatling Cannon (Packaged)", "Buildable. A fully automatic gun that takes time to wind up. Requires cooling.", false, 1, "item/turret_auto", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
 	/**Thruster*/
 	static THRUSTER = new this(230, "Thruster (Packaged)", "Buildable. Moves your ship. Fuelled with explosives.", false, 0, "item/thruster", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
 	/**Thruster (Starter)*/
@@ -243,6 +250,10 @@ export class Item extends Enum<number> {
 	static BULK_BAY_MARKER = new this(260, "Bulk Loading Bay Designator (Packaged)", "Buildable. WIP / UNOBTAINABLE", false, 2, "item/bulk_bay_marker", undefined, [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
 	/**Navigation Unit (Starter)*/
 	static NAV_UNIT = new this(261, "Navigation Unit (Starter, Packaged)", "Buildable Starter Item. Used to select a destination zone and initiate emergency warps. Also functions as a simple shield projector.", false, -1, "item/nav_unit", undefined, [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
+	/**Logistics Rail*/
+	static BLOCK_LOGISTICS_RAIL = new this(262, "Logistics Rail", "Buildable. ???", true, 0, "item/ladder", {count:1,time:1,input:[{item:1,count:2}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:16}])
+	/**Fixed Cannon*/
+	static TURRET_FIXED = new this(263, "Fixed Cannon (Packaged)", "Buildable. A a gun with a fixed angle, with a slightly improved fire-rate.", false, 1, "item/turret_fixed", undefined, [{buildDirection:"HORIZONTAL",snap_x:true,snap_y:true,bounds:{x:2.8,y:0.8},require_blocks:[{x:0,y:0,block:"HULL_H"},{x:1,y:0,block:"HULL_H"},{x:-1,y:0,block:"HULL_H"}],allow_world:true},{buildDirection:"VERTICAL",snap_x:true,snap_y:true,bounds:{x:0.8,y:2.8},require_blocks:[{x:0,y:0,block:"HULL_V"},{x:0,y:1,block:"HULL_V"},{x:0,y:-1,block:"HULL_V"}],allow_world:true}])
 	/**Eternal Bronze Wrench*/
 	static ETERNAL_WRENCH_BRONZE = new this(300, "Eternal Bronze Wrench", "Patron reward. Will not despawn. Thank you for your support! 😀", false, -1, "item/wrench_bronze_et")
 	/**Eternal Silver Wrench*/
