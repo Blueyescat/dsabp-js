@@ -1,6 +1,6 @@
 {
   "name": "dsabp-js",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "DSA (drednot.io) Blueprint implementation and API for Node.js and the browser, in TypeScript.",
   "homepage": "https://github.com/Blueyescat/dsabp-js",
   "bugs": "https://github.com/Blueyescat/dsabp-js/issues",
@@ -37,14 +37,14 @@
     "docs": "typedoc --options ./.typedoc/config.json"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
-    "@typescript-eslint/eslint-plugin": "^7.16.0",
-    "@typescript-eslint/parser": "^7.16.0",
+    "@types/node": "^20.14.11",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "dts-bundle-generator": "^9.5.1",
     "esbuild": "^0.23.0",
     "eslint": "^8.57.0",
     "fflate": "^0.8.2",
-    "typedoc": "^0.26.3",
+    "typedoc": "^0.26.4",
     "typescript": "^5.5.3"
   },
   "keywords": [
