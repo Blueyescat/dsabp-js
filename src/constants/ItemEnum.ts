@@ -9,7 +9,7 @@ export type FabricatorType = "Legacy" | "Starter" | "Munitions" | "Engineering" 
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Wed Jul 17 18:32:20 MDT 2024 / 5d2d548`</small>
+ * <small>Generated using test.drednot.io version: `Fri Sep 27 19:22:35 MDT 2024 / f7c20dd`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -17,7 +17,7 @@ export class Item extends Enum<number> {
 	readonly stackable: boolean
 	readonly rarity: number
 	declare readonly image?: string
-	declare readonly recipe?: Array<Partial<{ count: number, time: number, input: { item: number, count: number }[], built_by: FabricatorType[] }>>
+	declare readonly recipe?: Partial<{ count: number, time: number, input: { item: number, count: number }[], built_by: FabricatorType[] }>
 	/**
 	 * Each object in this array represents build information for different cases. For example, two for cannons,
 	 * for vertical and horizontal placement, and three for ejectors, including one for placement inside the ship.
@@ -125,7 +125,7 @@ export class Item extends Enum<number> {
 	/**Shield Core*/
 	static SHIELD_CORE = new this(123, "Shield Core", "A power source for shield generators.", false, 1, "item/shield_core")
 	/**Standard Ammo*/
-	static AMMO_STANDARD = new this(150, "Standard Ammo", "Fast reloads.", true, 0, "item/ammo_standard", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Starter","Munitions"]})
+	static AMMO_STANDARD = new this(150, "Standard Ammo", "Regular bullets.", true, 0, "item/ammo_standard", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Starter","Munitions"]})
 	/**ScatterShot Ammo*/
 	static AMMO_SCATTER = new this(151, "ScatterShot Ammo", "Shoots multiple projectiles. Significant damage at close range, with knock-back.", true, 0, "item/ammo_scattershot", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	/**Flak Ammo*/
