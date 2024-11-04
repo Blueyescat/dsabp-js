@@ -3,9 +3,10 @@ import { build as esbuild, transform } from "esbuild"
 import { readFile, writeFile } from "fs/promises"
 import pkg from "./package.json" assert { type: "json" }
 
-const globalName = "dsabp"
-const entry = "./src/index.ts"
-const outFolder = "./dist/"
+const globalName = "dsabp",
+	entry = "./src/index.ts",
+	outFolder = "./dist/",
+	excludeFromSrcMap = /fflate/
 
 /** @type {import("esbuild").BuildOptions} */
 const commonOpts = {
@@ -17,7 +18,6 @@ const commonOpts = {
 	target: "es2022"
 }
 
-const excludeFromSrcMap = /fflate/
 function getPl(type) {
 	if (type == "node") return [{
 		replacePlValues: [
@@ -132,10 +132,6 @@ async function getScriptUrlCode(ext) {
 	).code
 }
 
-function time() {
-	return new Date().toISOString().substring(17, 23)
-}
-
 /** @param {...[regex: RegExp, replacement: string]} patterns */
 function replacePl(...patterns) {
 	return {
@@ -163,4 +159,8 @@ function srcMapExcludePl(fileFilter) {
 			})
 		},
 	}
+}
+
+function time() {
+	return new Date().toLocaleTimeString()
 }
