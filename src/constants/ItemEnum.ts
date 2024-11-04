@@ -9,7 +9,7 @@ export type FabricatorType = "Legacy" | "Starter" | "Munitions" | "Engineering" 
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Fri Sep 27 19:22:35 MDT 2024 / f7c20dd`</small>
+ * <small>Generated using test.drednot.io version: `Sat Nov 2 23:16:10 MDT 2024 / 07f2ca2`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -310,7 +310,9 @@ export class Item extends Enum<number> {
 	static GREMLIN_ORANGE = new this(324, "Wild Gremlin (Orange)", "It looks upset.", false, 0, "item/gremlin_orange")
 	/**Wild Gremlin (Yellow)*/
 	static GREMLIN_YELLOW = new this(325, "Wild Gremlin (Yellow)", "It looks upset.", false, 0, "item/gremlin_yellow")
-	/**Elimination Trophy*/
-	static TROPHY_ELIMINATION = new this(326, "Elimination Trophy", "Awarded to Elimination PvP event winners.", false, 9, "item/trophy_elim")
+	/**Elimination Loot Box*/
+	static ELIMINATION_LOOT_BOX = new this(326, "Elimination Loot Box", "Recycle in a safe zone to unbox.", true, 2, "item/loot_box")
+	/**Elimination Loot Box (Locked)*/
+	static ELIMINATION_LOOT_BOX_LOCKED = new this(327, "Elimination Loot Box (Locked)", "Recycle in a safe zone to unbox.", true, 2, "item/loot_box_locked")
 	static { this.end() }
 }
