@@ -7,7 +7,7 @@ const isNode = globalThis.process?.release?.name == "node"
 const isWorkerThread = isNode ? !isMainThread : (typeof WorkerGlobalScope != "undefined" && self instanceof WorkerGlobalScope)
 
 let wkMsgId = 0
-const wkRequests = {}
+const wkRequests: Record<string, { res: (value: unknown) => void, rej: (reason?: any) => void }> = {}
 
 export const worker = isWorkerThread ? null : (isNode ? node_createWorker : browser_createWorker)() as any
 

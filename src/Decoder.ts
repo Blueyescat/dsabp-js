@@ -1,5 +1,5 @@
 import { Buffer } from "buffer" // @build_node-only
-import { inflateSync as fflate_inflateSync } from "fflate" // @build_browser-only
+import { inflateSync as fflate_inflateSync, InflateOptions } from "fflate" // @build_browser-only
 import { inflateRawSync as zlib_inflateRawSync } from "zlib" // @build_node-only
 import { Blueprint } from "./Blueprint.js"
 import { BuildCmd } from "./BuildCmd.js"
@@ -32,6 +32,8 @@ const arrTypeMap = {
  * but it is possible to do so only with the sync methods.
  */
 export class Decoder {
+	/** @private Only exists in browser build. */
+	static fflate_inflateSync: (data: Uint8Array, opts?: InflateOptions) => Uint8Array = fflate_inflateSync // @build_browser-only
 	#textDecoder: TextDecoder
 	#bytes: Uint8Array
 	#view: DataView

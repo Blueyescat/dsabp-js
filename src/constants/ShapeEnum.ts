@@ -8,7 +8,7 @@ import { Enum } from "./Enum.js"
  *
  * The {@link vertices} are sorted to prevent them from overlapping.
  *
- * <small>Generated using test.drednot.io version: `Wed Oct 18 17:42:13 MDT 2023 / 1944d9d`</small>
+ * <small>Generated using test.drednot.io version: `Sat Nov 2 23:16:10 MDT 2024 / 07f2ca2`</small>
  */
 export class Shape extends Enum<number> {
 	constructor(v: number, readonly vertices: { x: number, y: number }[]) {
@@ -25,8 +25,8 @@ export class Shape extends Enum<number> {
 	/**⣿⣿⡿⠋\
 	   ⡿⠋    &#8198;*/
 	static RAMP_DR = new this(2, [{x:-0.5,y:-0.5},{x:0.5,y:0.5},{x:-0.5,y:0.5}])
-	/**⠈⠻⣿⣿\
-	 *       ⠈⠻*/
+	/**⠙⢿⣿⣿\
+	 *       ⠙⢿*/
 	static RAMP_DL = new this(3, [{x:0.5,y:-0.5},{x:0.5,y:0.5},{x:-0.5,y:0.5}])
 	/**&#8198;    ⢀⣴\
 	   ⢀⣴⣿⣿*/
@@ -146,7 +146,7 @@ export class Shape extends Enum<number> {
 	   ⣿⣿⡿⠋*/
 	static BEVEL_DR = new this(42, [{x:-0.5,y:-0.5},{x:0,y:-0.5},{x:0.5,y:0},{x:0.5,y:0.5},{x:-0.5,y:0.5}])
 	/**⣿⣿⣿⣿\
-	   ⠈⠻⣿⣿*/
+	   ⠙⢿⣿⣿*/
 	static BEVEL_DL = new this(43, [{x:0,y:-0.5},{x:0.5,y:-0.5},{x:0.5,y:0.5},{x:-0.5,y:0.5},{x:-0.5,y:0}])
 	/**⢀⣴⣿⣿\
 	   ⣿⣿⣿⣿*/

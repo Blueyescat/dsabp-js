@@ -1,4 +1,4 @@
-import { deflateSync as fflate_deflateSync } from "fflate" // @build_browser-only
+import { DeflateOptions, deflateSync as fflate_deflateSync } from "fflate" // @build_browser-only
 import { deflateRawSync as zlib_deflateRawSync } from "zlib" // @build_node-only
 import { Blueprint } from "./Blueprint.js"
 import { BuildCmd } from "./BuildCmd.js"
@@ -13,6 +13,8 @@ import { ui8tob64 } from "./injBrowser.js" // @build_browser-only
  * but it is possible to do so only with the sync method.
  */
 export class Encoder {
+	/** @private Only exists in browser build. */
+	static fflate_deflateSync: (data: Uint8Array, opts?: DeflateOptions) => Uint8Array = fflate_deflateSync // @build_browser-only
 	#textEncoder: TextEncoder
 	#bytes: Uint8Array
 	#view: DataView

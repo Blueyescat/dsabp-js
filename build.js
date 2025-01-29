@@ -1,7 +1,7 @@
 import { generateDtsBundle } from "dts-bundle-generator"
 import { build as esbuild, transform } from "esbuild"
 import { readFile, writeFile } from "fs/promises"
-import pkg from "./package.json" assert { type: "json" }
+import pkg from "./package.json" with { type: "json" }
 
 const globalName = "dsabp",
 	entry = "./src/index.ts",

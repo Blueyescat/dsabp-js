@@ -4,5 +4,6 @@
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.format.semicolons": "remove",
   "typescript.preferences.quoteStyle": "double",
-  "typescript.preferences.importModuleSpecifierEnding": "js"
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "deno.enable": false
 }
