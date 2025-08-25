@@ -9,7 +9,7 @@ export type FabricatorType = "Legacy" | "Starter" | "Munitions" | "Engineering" 
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Sat Nov 2 23:16:10 MDT 2024 / 07f2ca2`</small>
+ * <small>Generated using test.drednot.io version: `Sun Aug 24 16:24:50 MDT 2025 / 8200d52`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -119,11 +119,11 @@ export class Item extends Enum<number> {
 	/**Blueprint Scanner*/
 	static SCANNER_BLUEPRINT = new this(120, "Blueprint Scanner", "Generates blueprint strings, which describe how to rebuild ships or parts of ships. Click and drag to select a region.", false, 2, "item/scanner_blueprint")
 	/**Sandbox RCD*/
-	static RCD_SANDBOX = new this(121, "Sandbox RCD", "Buildable. Used for automated construction. This test-exclusive variant can spawn items and doesn't need fuel. It works faster on ships owned by patrons.", false, -1, "item/rcd_sandbox", undefined, [{bounds:{x:2.5,y:2.5},shape:{verts:[{x:-1.25,y:-0.5},{x:-0.5,y:-1.25},{x:0.5,y:-1.25},{x:1.25,y:-0.5},{x:1.25,y:0.5},{x:0.5,y:1.25},{x:-0.5,y:1.25},{x:-1.25,y:0.5}]},allow_non_solids:true,image:"rcd_sandbox",image_only:true}], true)
+	static RCD_SANDBOX = new this(121, "Sandbox RCD", "Buildable. Used for automated construction. This test-exclusive variant can spawn items and doesn't need fuel. It works faster on ships owned by patrons.", false, -1, "item/rcd_sandbox", undefined, [{bounds:{x:2.5,y:2.5},shape:{verts:[{x:-1.2,y:-0.3999999999999999},{x:-0.3999999999999999,y:-1.2},{x:0.3999999999999999,y:-1.2},{x:1.2,y:-0.3999999999999999},{x:1.2,y:0.3999999999999999},{x:0.3999999999999999,y:1.2},{x:-0.3999999999999999,y:1.2},{x:-1.2,y:0.3999999999999999}]},allow_non_solids:true,image:"rcd_sandbox",image_only:true}], true)
 	/**Flux RCD*/
-	static RCD_FLUX = new this(122, "Flux RCD", "Buildable. Used for automated construction. Consumes flux as fuel.", false, 2, "item/rcd_flux", undefined, [{bounds:{x:2.5,y:2.5},shape:{verts:[{x:-1.25,y:-0.5},{x:-0.5,y:-1.25},{x:0.5,y:-1.25},{x:1.25,y:-0.5},{x:1.25,y:0.5},{x:0.5,y:1.25},{x:-0.5,y:1.25},{x:-1.25,y:0.5}]},allow_non_solids:true,image:"rcd_flux",image_only:true}], true)
+	static RCD_FLUX = new this(122, "Flux RCD", "Buildable. Used for automated construction. Consumes flux as fuel.", false, 2, "item/rcd_flux", undefined, [{bounds:{x:2.5,y:2.5},shape:{verts:[{x:-1.2,y:-0.3999999999999999},{x:-0.3999999999999999,y:-1.2},{x:0.3999999999999999,y:-1.2},{x:1.2,y:-0.3999999999999999},{x:1.2,y:0.3999999999999999},{x:0.3999999999999999,y:1.2},{x:-0.3999999999999999,y:1.2},{x:-1.2,y:0.3999999999999999}]},allow_non_solids:true,image:"rcd_flux",image_only:true}], true)
 	/**Shield Core*/
-	static SHIELD_CORE = new this(123, "Shield Core", "A power source for shield generators.", false, 1, "item/shield_core")
+	static SHIELD_CORE = new this(123, "Shield Core", "A power source for shield generators.", false, 0, "item/shield_core")
 	/**Standard Ammo*/
 	static AMMO_STANDARD = new this(150, "Standard Ammo", "Regular bullets.", true, 0, "item/ammo_standard", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Starter","Munitions"]})
 	/**ScatterShot Ammo*/
@@ -197,7 +197,7 @@ export class Item extends Enum<number> {
 	/**Hyper Rubber Block*/
 	static BLOCK_HYPER_RUBBER = new this(233, "Hyper Rubber Block", "Buildable. Bouncy.", true, 2, "item/block_hrubber", {count:1,time:1,input:[{item:4,count:2}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:13,block_shaped:true}])
 	/**Hyper Ice Block*/
-	static BLOCK_ICE_GLASS = new this(234, "Hyper Ice Block", "Buildable. Low-friction ice that can't melt for some reason.", true, 0, "item/block_sglass", undefined, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:14,block_shaped:true}])
+	static BLOCK_ICE_GLASS = new this(234, "Hyper Ice Block", "Buildable. Low-friction ice that can't melt for some reason.", true, 1, "item/block_sglass", undefined, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:14,block_shaped:true}])
 	/**Ladder*/
 	static BLOCK_LADDER = new this(235, "Ladder", "Buildable. You can climb them.", true, 0, "item/ladder", {count:1,time:1,input:[{item:1,count:2}],built_by:["Starter","Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:5}])
 	/**Walkway*/
@@ -239,9 +239,9 @@ export class Item extends Enum<number> {
 	/**Fluid Tank*/
 	static FLUID_TANK = new this(255, "Fluid Tank", "Buildable. Stores fluids.", false, 0, "item/tank", {count:1,time:20,input:[{item:1,count:64}],built_by:["Engineering"]}, [{bounds:{x:2,y:2},snap_x:true,snap_y:true,offset:{x:0.5,y:0.5},offset2:{x:-0.5,y:-0.5},image:"tank"}])
 	/**Shield Generator*/
-	static SHIELD_GENERATOR = new this(256, "Shield Generator", "Buildable. Generates shield fluid.", false, 2, "item/shield_generator", undefined, [{bounds:{x:4,y:2},snap_x:true,snap_y:true,offset:{x:0.5,y:0.5},offset2:{x:-0.5,y:-0.5},image:"shield_generator",build_angle:"Fixed",image_only:true}])
+	static SHIELD_GENERATOR = new this(256, "Shield Generator", "Buildable. Generates shield fluid.", false, 1, "item/shield_generator", undefined, [{bounds:{x:4,y:2},snap_x:true,snap_y:true,offset:{x:0.5,y:0.5},offset2:{x:-0.5,y:-0.5},image:"shield_generator",build_angle:"Fixed",image_only:true}])
 	/**Shield Projector*/
-	static SHIELD_PROJECTOR = new this(257, "Shield Projector", "Buildable. Used to activate an adjacent bank of shield tanks.", false, 2, "item/shield_projector", undefined, [{bounds:{x:1,y:1},snap_x:true,snap_y:true,image:"shield_projector_1"}])
+	static SHIELD_PROJECTOR = new this(257, "Shield Projector", "Buildable. Used to activate an adjacent bank of shield tanks.", false, 1, "item/shield_projector", undefined, [{bounds:{x:1,y:1},snap_x:true,snap_y:true,image:"shield_projector_1"}])
 	/**Enhanced Turret Controller*/
 	static TURRET_CONTROLLER_NEW = new this(258, "Enhanced Turret Controller", "Buildable. Used to control turrets remotely.", false, 2, "item/turret_controller_new", undefined, [{bounds:{x:1,y:1},snap_x:true,snap_y:true}])
 	/**Bulk Ejector*/
@@ -305,11 +305,11 @@ export class Item extends Enum<number> {
 	/**Witch Hat*/
 	static COS_WITCH_HAT = new this(322, "Witch Hat", "Cosmetic Equipment (Head). Patron reward.", false, 0, "item/witch_hat", {count:1,time:5,input:[{item:1,count:4}],built_by:["Equipment"]})
 	/**Wild Gremlin (Red)*/
-	static GREMLIN_RED = new this(323, "Wild Gremlin (Red)", "It looks upset.", false, 0, "item/gremlin_red")
+	static GREMLIN_RED = new this(323, "Wild Gremlin (Red)", "It looks upset.", false, 2, "item/gremlin_red")
 	/**Wild Gremlin (Orange)*/
-	static GREMLIN_ORANGE = new this(324, "Wild Gremlin (Orange)", "It looks upset.", false, 0, "item/gremlin_orange")
+	static GREMLIN_ORANGE = new this(324, "Wild Gremlin (Orange)", "It looks upset.", false, 2, "item/gremlin_orange")
 	/**Wild Gremlin (Yellow)*/
-	static GREMLIN_YELLOW = new this(325, "Wild Gremlin (Yellow)", "It looks upset.", false, 0, "item/gremlin_yellow")
+	static GREMLIN_YELLOW = new this(325, "Wild Gremlin (Yellow)", "It looks upset.", false, 2, "item/gremlin_yellow")
 	/**Elimination Loot Box*/
 	static ELIMINATION_LOOT_BOX = new this(326, "Elimination Loot Box", "Recycle in a safe zone to unbox.", true, 2, "item/loot_box")
 	/**Elimination Loot Box (Locked)*/

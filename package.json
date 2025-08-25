@@ -1,6 +1,6 @@
 {
   "name": "dsabp-js",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "description": "DSA (drednot.io) Blueprint implementation and API for Node.js and the browser, in TypeScript.",
   "homepage": "https://github.com/Blueyescat/dsabp-js",
   "bugs": "https://github.com/Blueyescat/dsabp-js/issues",
@@ -37,15 +37,15 @@
     "docs": "typedoc --options ./.typedoc/config.json"
   },
   "devDependencies": {
-    "@types/node": "^22.12.0",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
+    "@types/node": "^24.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
     "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.24.2",
-    "eslint": "^9.19.0",
+    "esbuild": "^0.25.9",
+    "eslint": "^9.34.0",
     "fflate": "^0.8.2",
-    "typedoc": "^0.27.6",
-    "typescript": "^5.7.3"
+    "typedoc": "^0.28.11",
+    "typescript": "^5.9.2"
   },
   "keywords": [
     "Deep Space Airships",
