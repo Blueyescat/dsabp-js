@@ -9,7 +9,7 @@ export type FabricatorType = "Legacy" | "Starter" | "Munitions" | "Engineering" 
  * property names. If you use it, it is up to you to test it and handle the game changes.
  * The major version won't be incremented for any breaking changes to it.
  *
- * <small>Generated using test.drednot.io version: `Sun Aug 24 16:24:50 MDT 2025 / 8200d52`</small>
+ * <small>Generated using test.drednot.io version: `Mon Jun 8 06:31:03 PM MDT 2026 / a53f4e9`</small>
  */
 export class Item extends Enum<number> {
 	readonly name: string
@@ -24,7 +24,7 @@ export class Item extends Enum<number> {
 	 *
 	 * The object may have a `buildDirection` property to specify the build direction on the ship hull.
 	 */
-	declare readonly buildInfo?: Array<Partial<{ bounds: { x: number, y: number }, shape: { verts: { x: number, y: number }[] }, allow_non_solids: boolean, image: string, image_only: boolean, snap_y: boolean, offset: { x: number, y: number }, require_blocks: { x: number, y: number, block: "_BUILD_SURFACE" | "AIR" | "HULL_CORNER" | "HULL_H" | "HULL_V" | "INTERIOR_BLOCK" | "LADDER" | "WALKWAY" | "ITEM_NET" | "RAMP_1" | "RAMP_2" | "RAMP_3" | "RAMP_4" | "COLOR_PANEL" | "HYPER_RUBBER" | "ICE_GLASS" | "ANNIHILATOR" }[], allow_solids: boolean, snap_x: boolean, buildDirection: "HORIZONTAL" | "VERTICAL", allow_world: boolean, block: number, block_shaped: boolean, block_is_colored: boolean, allow_any: boolean, build_angle: "Any" | "Fixed", image_anim: string, is_lockdown_override: boolean, offset2: { x: number, y: number } }>>
+	declare readonly buildInfo?: Array<Partial<{ bounds: { x: number, y: number }, shape: { verts: { x: number, y: number }[] }, allow_non_solids: boolean, image: string, image_only: boolean, snap_y: boolean, offset: { x: number, y: number }, require_blocks: { x: number, y: number, block: "_BUILD_SURFACE" | "AIR" | "HULL_CORNER" | "HULL_H" | "HULL_V" | "INTERIOR_BLOCK" | "LADDER" | "WALKWAY" | "ITEM_NET" | "RAMP_1" | "RAMP_2" | "RAMP_3" | "RAMP_4" | "COLOR_PANEL" | "HYPER_RUBBER" | "ICE_GLASS" | "ANNIHILATOR" }[], allow_solids: boolean, snap_x: boolean, mute_restricted: string, buildDirection: "HORIZONTAL" | "VERTICAL", allow_world: boolean, block: number, block_shaped: boolean, block_is_colored: boolean, allow_any: boolean, build_angle: "Any" | "Fixed", image_anim: string, is_lockdown_override: boolean, offset2: { x: number, y: number } }>>
 	declare readonly blacklist_autobuild?: boolean
 	declare readonly fab_type?: FabricatorType
 
@@ -167,7 +167,7 @@ export class Item extends Enum<number> {
 	/**Comms Station*/
 	static COMMS_STATION = new this(217, "Comms Station (Packaged)", "Buildable. Used to communicate with other ships.", false, 0, "item/comms", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{snap_y:true,offset:{x:0,y:-0.25},bounds:{x:1.25,y:2.5},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"comms_station",image_only:true}])
 	/**Sign*/
-	static SIGN = new this(218, "Sign (Packaged)", "Buildable. Can display a short message.", false, 0, "item/sign", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true,image:"sign"}], true)
+	static SIGN = new this(218, "Sign (Packaged)", "Buildable. Can display a short message.", false, 0, "item/sign", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},allow_solids:true,image:"sign",mute_restricted:"place signs"}], true)
 	/**Spawn Point*/
 	static SPAWN_POINT = new this(219, "Spawn Point (Packaged)", "Buildable. Can be set to spawn a specific rank.", false, 0, "item/spawn", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{snap_y:true,offset:{x:0,y:0.5},bounds:{x:1,y:2},require_blocks:[{x:0,y:-2,block:"_BUILD_SURFACE"}],allow_solids:true,image:"spawn"}], true)
 	/**Door*/
@@ -205,7 +205,7 @@ export class Item extends Enum<number> {
 	/**Item Net*/
 	static BLOCK_ITEM_NET = new this(237, "Item Net", "Buildable. Blocks items but not players.", true, 0, "item/item_net", {count:1,time:1,input:[{item:1,count:2}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block:7,block_shaped:true}])
 	/**Paint*/
-	static PAINT = new this(239, "Paint", "Used to paint your ship's background. Hold R to select color.", true, 0, "item/color_panel", {count:1,time:1,input:[{item:1,count:2}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block_is_colored:true,allow_world:true,allow_any:true}], true)
+	static PAINT = new this(239, "Paint", "Used to paint your ship's background. Hold R to select color.", true, 0, "item/color_panel", {count:1,time:1,input:[{item:1,count:2}],built_by:["Engineering"]}, [{snap_x:true,snap_y:true,bounds:{x:1,y:1},block_is_colored:true,allow_world:true,allow_any:true,mute_restricted:"paint"}], true)
 	/**Expando Box*/
 	static EXPANDO_BOX = new this(240, "Expando Box (Packaged)", "Buildable. Flexible bulk storage.", false, 0, "item/exbox", {count:1,time:10,input:[{item:1,count:8}],built_by:["Engineering"]}, [{bounds:{x:2,y:2},shape:{verts:[{x:-0.95,y:-0.75},{x:-0.75,y:-0.95},{x:0.75,y:-0.95},{x:0.95,y:-0.75},{x:0.95,y:0.75},{x:0.75,y:0.95},{x:-0.75,y:0.95},{x:-0.95,y:0.75}]},allow_non_solids:true,build_angle:"Any",image:"exbox_base",image_only:true}])
 	/**Safety Anchor*/
@@ -314,5 +314,23 @@ export class Item extends Enum<number> {
 	static ELIMINATION_LOOT_BOX = new this(326, "Elimination Loot Box", "Recycle in a safe zone to unbox.", true, 2, "item/loot_box")
 	/**Elimination Loot Box (Locked)*/
 	static ELIMINATION_LOOT_BOX_LOCKED = new this(327, "Elimination Loot Box (Locked)", "Recycle in a safe zone to unbox.", true, 2, "item/loot_box_locked")
+	/**Wild Gremlin (Green)*/
+	static GREMLIN_GREEN = new this(340, "Wild Gremlin (Green)", "It looks upset.", false, 2, "item/gremlin_green")
+	/**Wild Gremlin (Blue)*/
+	static GREMLIN_BLUE = new this(341, "Wild Gremlin (Blue)", "It looks upset.", false, 2, "item/gremlin_blue")
+	/**Wild Gremlin (Purple)*/
+	static GREMLIN_PURPLE = new this(342, "Wild Gremlin (Purple)", "It looks upset.", false, 2, "item/gremlin_purple")
+	/**β ScatterShot Ammo*/
+	static AMMO_SCATTER_BETA = new this(400, "β ScatterShot Ammo", "Shoots multiple projectiles. Significant damage at close range, with knock-back.", true, 0, "item/ammo_b_scattershot", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	/**β Flak Ammo*/
+	static AMMO_FLAK_BETA = new this(401, "β Flak Ammo", "Explodes into more bullets in flight.", true, 0, "item/ammo_b_flak", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	/**β Sniper Ammo*/
+	static AMMO_SNIPER_BETA = new this(402, "β Sniper Ammo", "Speedy. Gains power from bouncing.", true, 0, "item/ammo_b_sniper", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
+	/**β Punch Ammo*/
+	static AMMO_PUNCH_BETA = new this(403, "β Punch Ammo", "Pushes objects away.", true, 0, "item/ammo_b_punch", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:[]})
+	/**β Yank Ammo*/
+	static AMMO_YANK_BETA = new this(404, "β Yank Ammo", "Pulls objects.", true, 0, "item/ammo_b_yank", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:[]})
+	/**β Slug Ammo*/
+	static AMMO_SLUG_BETA = new this(405, "β Slug Ammo", "Slow bullet.", true, 0, "item/ammo_b_slug", {count:4,time:1,input:[{item:1,count:1},{item:2,count:1}],built_by:["Munitions"]})
 	static { this.end() }
 }

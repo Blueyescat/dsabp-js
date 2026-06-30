@@ -8,7 +8,7 @@ import { Enum } from "./Enum.js"
  *
  * The {@link vertices} are sorted to prevent them from overlapping.
  *
- * <small>Generated using test.drednot.io version: `Sat Nov 2 23:16:10 MDT 2024 / 07f2ca2`</small>
+ * <small>Generated using test.drednot.io version: `Mon Jun 8 06:31:03 PM MDT 2026 / a53f4e9`</small>
  */
 export class Shape extends Enum<number> {
 	constructor(v: number, readonly vertices: { x: number, y: number }[]) {
